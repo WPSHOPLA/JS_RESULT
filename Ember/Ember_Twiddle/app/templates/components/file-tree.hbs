@@ -1,0 +1,23 @@
+<div class="header">
+  <div class="nav-left">
+    &nbsp;
+    <span class="hint--bottom hint--rounded" data-hint="Expand All">
+      <span class="twiddlicon twiddlicon-expand-all" {{action 'expandAll'}}></span>
+    </span>
+    &nbsp;
+    <span class="hint--bottom hint--rounded" data-hint="Collapse All">
+      <span class="twiddlicon twiddlicon-collapse-all" {{action 'collapseAll'}}></span>
+    </span>
+  </div>
+  <div class="nav-right">
+    <span class="hint--bottom hint--rounded" data-hint="Hide project files">
+        <span class="glyphicon glyphicon-chevron-left" {{action 'hideFileTree'}}></span>
+    </span>
+  </div>
+</div>
+{{ember-jstree data=fileTreeData
+               actionReceiver=jsTreeActionReceiver
+               eventDidSelectNode=(action "handleSelectTreeNode")
+               eventDidBecomeReady=(action "didBecomeReady")
+               eventDidChange=(action "didChange")
+}}

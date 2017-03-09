@@ -1,0 +1,12 @@
+---
+layout: blog
+class: blog
+---
+
+<div class="summer-content">
+  {% for post in site.posts %}
+    {% if post.tags contains page.title %}
+      {% include blog/post-listing.html %}
+    {% endif %}
+  {% endfor %}
+</div>

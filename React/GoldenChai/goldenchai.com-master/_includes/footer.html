@@ -1,0 +1,65 @@
+<footer>
+  <div class="container">
+    <div class="footer-nav">
+      <hr>
+      <div class="row">
+        <div class="collapseFooter"><p>&lsaquo; back</p></div>
+        <div class="col-xs-3 col-sm-5">
+          <div class="footer-chai hidden-xs">
+            <img src="{% asset_path chai-icon.png %}" alt="Toggle Black Ceylon mode" data-toggle-invert>
+            <p class="invert-mode invert-mode-1">Black Ceylon mode.</p>
+            <p class="invert-mode invert-mode-2">Magic Chai mode</p>
+            <p class="copyright active">© 2014 GoldenChai</p>
+          </div>
+        </div>
+        <div class="col-xs-9 col-sm-7 align-right">
+          <div class="footer-nav-cta footer-nav-info"><a href="#/info">Info</a>{% include tooltips.html tooltip="click-to-close" %}</div>
+          <div class="footer-nav-cta footer-nav-contact"><a href="#/contact">Contact</a>{% include tooltips.html tooltip="click-to-close" %}</div>
+        </div>
+      </div>
+    </div>
+    
+    <section id="footer-content">
+      <div class="tab-content">
+        <div class="tab-pane fade" id="info">
+          <div id="info-accordion" class="accordion">
+            {% include copy/info.html %}
+          </div>
+        </div>
+        <div class="tab-pane fade" id="contact">
+          <form action="POST">
+            <div class="row">
+              <div class="col-sm-6 col-sm-push contact-info text-center">
+                <p><a href="mailto:chai@goldenchai.com" onClick="ga('send', 'event', 'Contact', 'click');">chai@goldenchai.com</a></p>
+              </div>
+              <div class="col-sm-6 col-sm-pull">
+                <input type="text" id="email" placeholder="Your email..." />
+              </div>
+            </div>
+            <textarea id="message" placeholder="Tell us what you have in mind..."></textarea>
+            <div class="row">
+              <div class="col-xs-7 col-sm-9 text-right">
+                <small>You'll get a response <span class="nobr">within 24 hrs.</span></small>
+              </div>
+              <div class="col-xs-5 col-sm-3 text-right">
+                <button class="btn btn-lg btn-primary progress-button" data-style="shrink" data-horizontal onClick="ga('send', 'event', 'Contact', 'submit');">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</footer>
+
+<div id="footer-kicker">
+  <div class="container">
+    <h4>Let's get started; <a href="mailto:chai@goldenchai.com" onClick="ga('send', 'event', 'Contact', 'click');">chai@goldenchai.com</a></h4>
+    <h6>(response within 24 hours.)</h6>
+  </div>
+</div>
+
+<div id="phone-portrait-kicker">
+  {% include copy/art.html side="back" %}
+</div>

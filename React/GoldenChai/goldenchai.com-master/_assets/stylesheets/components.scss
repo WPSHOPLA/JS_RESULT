@@ -1,0 +1,274 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+
+.clear
+{
+  clear: both;
+}
+
+.inherit-height
+{
+  height: inherit;
+}
+
+.durability-color
+{
+  color: $durability-color;
+}
+
+.usability-color
+{
+  color: $usability-color;
+}
+
+.art-color
+{
+  color: $art-color;
+}
+
+.nobr
+{
+  white-space: nowrap;
+}
+
+@media (min-width: $screen-md)
+{
+  .nobr-sm
+  {
+    white-space: nowrap;
+  }
+}
+
+
+/* Utility classes */
+.align-center { text-align: center; }
+.align-left   { text-align: left; }
+.align-right  { text-align: right; }
+.pull-left    { float: left; }
+.pull-right   { float: right; }
+
+
+ul
+{
+  list-style-type: square;
+}
+
+
+/* DOWN ARROW */
+/* ==== */
+
+.arrow-down
+{
+  display: none;
+  height: 28px;
+  width: 28px;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -14px;
+  opacity: 0.7;
+
+  &.active
+  {
+    display: block;
+  }
+
+  &:hover
+  {
+    opacity: 1;
+  }
+}
+
+
+/* TABS */
+/* ==== */
+body
+{
+  .nav-tabs
+  {
+    @include disableHighlighting;
+
+    > li
+    {
+      @include disableHighlighting;
+
+      > a
+      {
+        padding: 0 !important;
+        border: 0 !important;
+      }
+
+      &.active
+      {
+        border: 0 !important;
+
+        > a, > a:hover
+        {
+          border: 0 !important;
+        }
+      }
+    }
+  }  
+}
+
+.tab-content
+{
+  .tab-pane
+  {
+    /* LIST STYLES */
+    /* ======== */
+
+    h4
+    {
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+
+    ul
+    {
+      display: block;
+      padding-left: 0;
+      margin-bottom: 20px;
+      padding-left: 26px;
+
+      li
+      {
+        text-align: left;
+        list-style-type: square;
+
+        // list-style-type: none;
+        // &:before {
+        //     content: "• ";
+        //     color: $white;
+        // }
+      }
+    }
+  }
+}
+
+
+
+/* FANCY CSS SPACERS */
+/* ============= */
+
+.spacer {
+  margin-top:100px;
+  margin-left:100px;
+  width:400px; 
+  position:relative; 
+  
+  .mask { 
+    overflow:hidden; height:20px; 
+    &:after { 
+      content:''; 
+      display:block; margin:-25px auto 0;
+      width:100%; height:25px;  
+      border-radius:125px / 12px;  
+      box-shadow:0 0 8px black;
+    }
+  }
+  span {
+    $size:50px;
+    width:$size; height:$size; 
+    position:absolute; 
+    bottom:100%; margin-bottom:-$size/2;
+    left:50%; margin-left:-$size/2;
+    border-radius:100%;
+    box-shadow:0 2px 4px #999;
+    background:white;
+  }
+  span i {
+    $offset:4px;
+    position:absolute;
+    top:$offset; bottom:$offset;
+    left:$offset; right:$offset;
+    border-radius:100%;
+    border:1px dashed #aaa;
+    
+    text-align:center;
+    line-height:40px;
+    font-style:normal;
+    color:#999;
+  }
+}
+
+
+
+/* ACCORDION */
+/* ======== */
+
+.accordion
+{
+  text-align: left;
+
+  .panel
+  {
+    border-bottom: 1px solid #aca68e;
+    padding: 10px 20px;
+    opacity: 0.7;
+
+    &:hover
+    {
+      opacity: 1;
+    }
+
+    .accordion-title
+    {
+      background: image-url("nav/accordion-default.png") left center no-repeat;
+      cursor: pointer;
+      margin: 0;
+      font-size: 1.3em;
+      padding: 5px 15px 5px 20px;
+      @include disableHighlighting;
+    }
+  }
+
+  .panel.active
+  {
+    background: rgba($white, 0.1);
+    opacity: 1;
+
+    .accordion-title
+    {
+      background: image-url("nav/accordion-active.png") left center no-repeat;
+    }
+  }
+}
+
+
+// vertical variation
+
+.spacer-vertical {
+  display: inline-block;
+  width: 20px;
+  
+  .mask { 
+    overflow:hidden; width:20px; height:200px; 
+    //outline:1px solid pink;
+  }
+  &.left .mask:after { 
+    content:''; 
+    display:block; margin-left:-20px;
+    width:20px; height:100%;  
+    border-radius:12px / 125px;  
+    box-shadow:0 0 8px black;
+  }
+  &.right .mask:before { 
+    content:''; 
+    display:block; margin-left:20px;
+    width:20px; height:100%; 
+    border-radius:12px / 125px; 
+    box-shadow:0 0 8px $gray6;
+  }
+}
+
+
+@media (max-width: $screen-xs-max)
+{
+  a[data-show-profile]
+  {
+    color: $text-color;
+    cursor: auto;
+  }
+}

@@ -1,0 +1,41 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+
+
+body.browser-firefox
+{
+  -moz-osx-font-smoothing: grayscale;
+
+  #manifestos
+  {
+    .container
+    {
+      .inner-wrapper
+      {
+        .main-content
+        {
+          .tab-content
+          {
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width: $screen-md)
+{
+  body.browser-firefox.footer-active
+  {
+    // hide manifestos stuff (the css blur filter doesnt work on firefox)
+    .window
+    {
+      .container, #marquee .nav, #marquee .marquee-headline, #workflow-thumbs-slider
+      {
+        opacity: 0;
+      }
+    }
+  }
+}

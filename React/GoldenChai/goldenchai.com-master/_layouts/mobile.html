@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-loading">
+
+{% include head.html %}
+
+{% if page.name == "manifestos" %}
+<body class="page-{{page.name}} site-multiple-pages manifesto-durability">
+{% else %}
+<body class="page-{{page.name}} site-multiple-pages">
+{% endif %}
+
+
+  <!-- INCLUDE THE HEADER -->
+  {% include header.html %}
+
+  <div id="skrollr-body">
+    {{ content }}
+  </div>
+
+  <!-- INCLUDE THE FOOTER -->
+  {% include footer.html %}
+
+
+  {% if page.defer %}
+    {% include defer.html defer="/defer.js" %}
+  {% else %}
+    <script type="text/javascript" src="/defer.js"></script>
+  {% endif %}
+
+
+  <script>
+    // SKROLLR
+    {% include javascripts/skrollr-stuff.js %}
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+<section id="manifestos" class="window">
+
+  <section id="marquee-wrapper">
+    <div id="marquee">
+      <div class="marquee-bg marquee-bg-durability"></div>
+      <div class="marquee-bg marquee-bg-usability"></div>
+      <div class="marquee-bg marquee-bg-art"></div>
+      <div class="marquee-shadow"></div>
+      <div class="marquee-headline">
+        <h1 class="headline-durability">Flawless websites merge</h1>
+        <h1 class="headline-usability">Zen websites merge</h1>
+        <h1 class="headline-art">True web-artists merge</h1>
+      </div>
+
+      <ul class="nav">
+        <li class="active"><a href="#/durability" class="nav-durability">Durability</a>, </li>
+        <li><a href="#/usability" class="nav-usability">Usability</a></li>
+        <li>and <a href="#/art" class="nav-art">Art</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="inner-wrapper">
+      <div class="main-content">
+
+        <!-- TAB CONTENT: DURABILITY, USABILITY, ART -->
+        <div class="tab-content">
+          <div class="tab-pane" id="durability">
+            <div class="content-front active">
+              <div>{% include copy/durability.html side="front" %}</div>
+            </div>
+            <div class="content-summary">
+              {% include copy/durability.html side="back" %}
+            </div>
+            <div class="arrows">
+              <div class="arrow arrow-backward arrow-expand" data-backwards><span class="durability">durability</span></div>
+              <div class="arrow arrow-forward arrow-expand" data-goto-next-manifesto><span class="usability">usability</span></div>
+            </div>
+            {% include mobile-manifesto-ctas.html %}
+          </div>
+
+          <div class="tab-pane" id="usability">
+            <div class="content-front active">
+              <div class="zen-symbol content-cta" data-toggle-summary data-toggle="tooltip" title="See summary"></div>
+              <div>{% include copy/usability.html side="front" %}</div>
+            </div>
+
+            <div class="content-summary">
+              {% include copy/usability.html side="back" %}
+            </div>
+            <div class="arrows">
+              <div class="arrow arrow-backward arrow-expand" data-backwards><span class="durability">durability</span></div>
+              <div class="arrow arrow-forward arrow-expand arrow-expand-short" data-goto-next-manifesto><span class="art">art</span></div>
+            </div>
+            {% include mobile-manifesto-ctas.html %}
+          </div>
+
+          <div class="tab-pane" id="art">
+            <div class="content-front active">
+              <div class="vitruvian content-cta" data-toggle-summary data-toggle="tooltip" title="See summary"></div>
+              <div>{% include copy/art.html side="front" %}</div>
+            </div>
+            <div class="content-summary">
+              {% include copy/art.html side="back" %}
+              <a href="#/workflow" class="arrow-down active"></a>
+            </div>
+            <div class="arrows">
+              <div class="arrow arrow-backward arrow-expand" data-backwards><span class="usability">usability</span></div>
+              <div class="arrow arrow-forward arrow-expand"><span>workflow</span></div>
+            </div>
+            {% include mobile-manifesto-ctas.html manifesto="art" %}
+          </div>
+        </div>
+        <!-- END OF TAB CONTENT -->
+
+      </div>
+      <div class="clear"></div>
+    </div>
+  </section>
+
+  <div id="manifestos-videos" class="visible-inverted-mode-1"></div>
+
+</section>

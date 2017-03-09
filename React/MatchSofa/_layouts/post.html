@@ -1,0 +1,31 @@
+---
+layout: layout
+type: post
+sidebar: hide
+subheader: hide
+class: blog
+---
+
+<!-- INCLUDE THE HEADER -->
+{% include header.html %}
+<main>
+
+  {% if page.imagefeature %}
+    <div class="container-fluid hidden-xs post-fancy">
+      {% include blog/post-fancy.html %}
+    </div>
+
+    <div class="container-fluid visible-xs">
+      {% include blog/post-simple.html %}
+    </div>
+  {% else %}
+    <div class="container-fluid">
+      {% include blog/post-simple.html %}
+    </div>
+  {% endif %}
+
+</main>
+
+{% include breadcrumb.html %}
+
+{% include footer.html %}

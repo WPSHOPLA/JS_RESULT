@@ -1,0 +1,26 @@
+{% if include.defer %}
+  <script type="text/javascript">
+
+    // REDIRECT MOBILE USERS TO THE MOBILE VERSION
+    // var windowWidth = window.innerWidth;
+    // if (windowWidth <= {{ site.tablet_end_width }})
+    // {
+    //   location.href = "/manifestos";
+    // }
+
+      // DEFER JS STUFF
+      function downloadJSAtOnload() {
+        var element = document.createElement("text-css");
+        var element = document.createElement("script");
+        element.src = "{{ include.defer }}";
+        document.body.appendChild(element);
+      }
+      if (window.addEventListener)
+        window.addEventListener("load", downloadJSAtOnload, false);
+      else if (window.attachEvent)
+        window.attachEvent("onload", downloadJSAtOnload);
+      else 
+        window.onload = downloadJSAtOnload;
+
+  </script>
+{% endif %}

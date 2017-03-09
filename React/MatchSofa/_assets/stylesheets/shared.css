@@ -1,0 +1,19 @@
+/**
+
+  *= require './shared/bootstrap'
+
+  *= require './shared/lib/animations.css'
+  *= require './shared/lib/royalslider.css'
+  *= require './shared/lib/rs-default.scss'
+  *= require './shared/lib/boxshadows.css'
+
+  *= require './shared/lib/morphext.css'
+
+  *= require './shared/buttons.scss'
+  *= require './shared/components.scss'
+  *= require './shared/layout.scss'
+  *= require './shared/header.scss'
+  *= require './shared/sidebar-ctas.scss'
+  *= require './shared/mobilenav.scss'
+
+  */

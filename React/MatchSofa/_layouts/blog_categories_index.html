@@ -1,0 +1,10 @@
+---
+layout: blog
+class: blog
+---
+
+<div class="summer-content">
+  {% for post in site.categories[page.category] %}
+    {% include blog/post-listing.html %}
+  {% endfor %}
+</div>

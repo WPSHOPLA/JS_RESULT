@@ -1,0 +1,201 @@
+body.page-index header >nav
+{
+  -skrollr-animation-name: collapseNav;
+}
+
+@-skrollr-keyframes collapseNav{
+  0 {
+    background-color: rgba(26,26,26,1);
+  }
+
+  250 {
+    background-color: rgba(26,26,26,0.1);
+  }
+}
+
+
+
+body.page-index #landing .units
+{
+  -skrollr-animation-name: units;
+}
+
+@-skrollr-keyframes units{
+  0 {
+    bottom: 60px;
+  }
+
+  100 {
+    bottom: 800px;
+  }
+}
+
+
+.page-index .sidebar-cta-unit,
+.page-index .sidebar-cta-video
+{
+  -skrollr-animation-name: sidebarCtas;
+}
+
+@-skrollr-keyframes sidebarCtas{
+  0 {
+    right: 0px;
+    opacity: 1;
+  }
+
+  150 {
+    right: -550px;
+    opacity: 0;
+  }
+}
+
+
+.page-index .sidebar-cta-contact
+{
+  -skrollr-animation-name: sidebarCtaContact;
+}
+
+@-skrollr-keyframes sidebarCtaContact{
+  100-end {
+    opacity: 0;
+    right: -100px;
+  }
+
+  end {
+    opacity: 1;
+    right: 0px;
+  }
+}
+
+.page-index .sidebar-cta-build
+{
+  -skrollr-animation-name: sidebarCtaBuild;
+}
+
+@-skrollr-keyframes sidebarCtaBuild{
+  0 {
+    right: -550px;
+  }
+
+  200-end {
+    right: -550px;
+  }
+
+  end {
+    right: 0px;
+  }
+}
+
+
+
+
+.page-index .section-modular .unit-top
+{
+  -skrollr-animation-name: unit-top;
+}
+
+@-skrollr-keyframes unit-top{
+  bottom-top {
+    top: -300px;
+  }
+
+  center-top {
+    top: -100px;
+  }
+}
+
+.page-index .section-modular .unit-bottom
+{
+  -skrollr-animation-name: unit-bottom;
+}
+
+@-skrollr-keyframes unit-bottom{
+  bottom-top {
+    top: 350px;
+  }
+
+  center-top {
+    top: 105px;
+  }
+}
+
+
+.page-index .section-table
+{
+  -skrollr-animation-name: table;
+}
+
+@-skrollr-keyframes table{
+  bottom-top {
+    background-position: 0px 0px;
+  }
+
+  top-bottom {
+    background-position: 200px 0px;
+  }
+}
+
+
+.page-index .section-connect .unit-from-top
+{
+  -skrollr-animation-name: unit-from-top;
+}
+
+@-skrollr-keyframes unit-from-top{
+  bottom-top {
+    left: -150px;
+  }
+
+  center-top {
+    left: 50px;
+  }
+}
+
+.page-index .section-connect .ottoman-from-top
+{
+  -skrollr-animation-name: ottoman-from-top;
+}
+
+@-skrollr-keyframes ottoman-from-top{
+  bottom-top {
+    right: -150px;
+  }
+
+  center-top {
+    right: 50px;
+  }
+}
+
+
+
+.page-index .section-fabric
+{
+  -skrollr-animation-name: fabrics;
+}
+
+@-skrollr-keyframes fabrics{
+  bottom-top {
+    background-position: 0px 0px;
+  }
+
+  top-bottom {
+    background-position: 100px 100px;
+  }
+}
+
+
+
+.page-index .section-delivery #van
+{
+  -skrollr-animation-name: delivery;
+}
+
+@-skrollr-keyframes delivery{
+  center-top {
+    right: -200px;
+  }
+
+  top-bottom {
+    right: -100px;
+  }
+}

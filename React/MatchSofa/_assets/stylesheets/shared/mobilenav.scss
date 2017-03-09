@@ -1,0 +1,151 @@
+@import 'constants';
+@import 'mixins';
+
+body, #skrollr-body
+{
+  header
+  {
+    nav
+    {
+      #mobilenav
+      {
+        display: none;
+        position: absolute;
+        right: 15px;
+        bottom: 8px;
+        font-size: 1.8em;
+        color: white;
+        cursor: pointer;
+
+        nav
+        {
+          display: none;
+          position: absolute;
+          left: 80px;
+          top: 0;
+          width: 300px;
+
+          a
+          {
+            color: white;
+          }
+
+          .mobilenav-item
+          {
+            a
+            {
+              padding: 5px 10px;
+              display: block;
+            }
+
+            &:hover
+            {
+              background-color: rgba($green, 0.5);
+            }
+
+            &.active
+            {
+              background-color: $green;
+            }
+          }
+
+          .mobilenav-subitems
+          {
+            margin-left: 20px;
+
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: $screen-xs-max)
+{
+  body
+  {
+    header >nav
+    {
+      ul
+      {
+        display: none;
+      }
+    }
+
+    // MOBILENAV STYLES
+    // =================
+    >main, #skrollr-body
+    {
+      position: relative;
+      overflow: hidden;
+    }
+
+    >.breadcrumbs
+    {
+      position: relative;
+    }
+
+    >main, >header>nav, >footer, >.breadcrumbs
+    {
+      @include transition(left $defaultTransitionSpeed);
+    }
+
+    // MAIN MOBILE NAV ACTIVE
+    &.mobile-nav-active
+    {
+      >main, >header>nav, >footer, >.breadcrumbs,
+      #skrollr-body, #skrollr-body >header>nav, #skrollr-body >footer
+      {
+        left: -80%;
+      }
+
+      >header #mobilenav nav,
+      #skrollr-body >header #mobilenav nav
+      {
+        display: block;
+      }
+
+      #skrollr-body .sidebar-ctas
+      {
+        display: none;
+      }
+    }
+    // END MOBILENAV
+
+  }
+}
+
+
+
+
+@media (max-width: $screen-xs-max)
+{
+  body, #skrollr-body
+  {
+    header
+    {
+      >nav
+      {
+        padding: 0 15px 0;
+
+        #mobilenav
+        {
+          display: block;
+        }
+      }
+    }
+  }
+
+  // INDEX PAGE
+  body.page-index
+  {
+    header >nav,
+    #skrollr-body header >nav
+    {
+      top: 0;
+    }
+  }
+}

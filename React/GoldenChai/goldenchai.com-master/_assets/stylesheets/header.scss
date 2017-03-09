@@ -1,0 +1,168 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
+
+/* header */
+body
+{
+  header
+  {
+    position: fixed;
+    width: 100%;
+    padding-top: 110px;
+    padding-bottom: 0;
+    z-index: 99999;
+
+    .container
+    {
+      position: relative;
+    }
+
+    .goldenchai-logo-wrapper
+    {
+      position: absolute;
+      bottom: 0;
+      cursor: pointer;
+      @include transition(bottom $defaultTransitionSpeed);
+      @include disableHighlighting;
+
+      .goldenchai-logo
+      {
+        padding: 0 13px;
+        text-transform: uppercase;
+        text-align: center;
+
+        .logo-copy
+        {
+          margin: 0;
+          padding: 0;
+          line-height: 34px;
+
+          .logo-golden
+          {
+            color: $golden;
+          }
+
+          .logo-chai
+          {
+            color: $white;
+          }
+        }
+      }
+    }
+
+
+    #mobile-nav-icon
+    {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+      right: 15px;
+      opacity: 0;
+      opacity: 0.4;
+      cursor: pointer;
+      @include disableHighlighting;
+    }
+  }
+}
+
+
+// STYLES FOR DURABILITY ONLY
+body.page-manifestos
+{
+  &.manifesto-durability
+  {
+    header
+    {
+      .goldenchai-logo-wrapper
+      {
+        .goldenchai-logo
+        {
+          background-color: darken($durability-color, 10);
+        }
+      }
+    }
+  }
+
+  // STYLES FOR USABILITY ONLY
+  &.manifesto-usability
+  {
+    header
+    {
+      .goldenchai-logo-wrapper
+      {
+        .goldenchai-logo
+        {
+          background-color: $usability-color;
+
+          &:hover
+          {
+            text-shadow: 0 0 10px $white;
+          }
+
+          .logo-golden
+          {
+            color: $goldendark;
+          }
+
+          .logo-chai
+          {
+            color: $gray40;
+          }
+        }
+      }
+    }
+  }
+
+  // STYLES FOR ART ONLY
+  &.manifesto-art
+  {
+    header
+    {
+      .goldenchai-logo-wrapper
+      {
+        .goldenchai-logo
+        {
+          background-color: darken($art-color, 20);
+        }
+      }
+    }
+  }
+}
+
+
+@media (max-width: $screen-xs-max), (min-width: $screen-phone) and (max-width: $screen-tablet) and (orientation: landscape)
+{
+  body
+  {
+    header
+    {
+      padding-top: 50px;
+
+      .goldenchai-logo-wrapper
+      {
+        .goldenchai-logo
+        {
+          padding: 0 9px;
+          font-size: 0.7em;
+
+          .logo-copy
+          {
+            line-height: 25px;
+          }
+        }
+      }
+
+      #primary-nav
+      {
+        opacity: 0;
+      }
+
+      #mobile-nav-icon
+      {
+        display: block;
+      }
+    }
+  }
+}

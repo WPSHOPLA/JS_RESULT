@@ -1,0 +1,146 @@
+@import 'shared/constants';
+@import 'shared/mixins';
+
+.page-404
+{
+  #search
+  {
+    margin-top: 30px;
+
+    input
+    {
+      width: 50%;
+      font-size: 1.5em;
+    }
+  }
+}
+
+header nav #search
+{
+  position: absolute;
+  right: 30px;
+  width: 30px;
+  bottom: 15px;
+  @include transition(width $defaultTransitionSpeed);
+
+  input
+  {
+    color: white;
+    width: 100%;
+    padding: 5px;
+  }
+
+  &.focused
+  {
+    width: 200px;
+  }
+
+}
+
+#search
+{
+  input
+  {
+    color: white;
+    width: 30px;
+    padding: 5px;
+    border: 0;
+    background-color: transparent;
+    @include transition(background-color $defaultTransitionSpeed);
+  }
+
+  &.focused
+  {
+    input
+    {
+      outline: none !important;
+      background-color: $green;
+    }
+  }
+
+
+  input.empty
+  {
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+  }
+}
+
+#search-results
+{
+  display: none;
+  background-color: white;
+  position: absolute;
+  padding: 5px;
+  z-index: 999;
+  border: 1px solid gray;
+  margin-right: 12px;
+
+  .entries
+  {
+    color: black;
+
+    p
+    {
+      margin-bottom: 0;
+    }
+  }
+
+  a
+  {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    line-height: 1em;
+
+    &:hover,
+    &:focus
+    {
+      background-color: $green;
+      color: white;
+      outline: none;
+      border-radius: 0;
+    }
+  }
+
+  a, small
+  {
+    color: black;
+  }
+
+  small
+  {
+    opacity: 0.6;
+  }
+}
+
+
+@media (max-width: $screen-xs-max)
+{
+  header nav
+  {
+    #search
+    {
+      right: 55px;
+      @include transition((width $defaultTransitionSpeed, right $defaultTransitionSpeed));
+
+      &.focused
+      {
+        @include calc(width, "100% - 70px");
+      }
+    }
+
+    #search-results
+    {
+      right: 0;
+      top: 30px;
+
+      a
+      {
+        white-space: normal;
+      }
+    }
+  }
+}

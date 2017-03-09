@@ -1,0 +1,35 @@
+{% if include.side == "front" %}
+
+  <div class="black-diamond content-cta content-cta-hover" data-toggle-summary data-toggle="tooltip" title="See summary">
+    <div class="default"></div>
+    <div class="hover"></div>
+  </div>
+  <h3>Manifesto #1: Your website should be rock-solid and stay robust through any storm.</h3>
+  <p>Fully responsive in all browsers and platforms (including mobile and tablets); we ensure your audience a solid experience from start-to-end.</p>
+  <p>Using bullet-proof technology and <span data-toggle="tooltip" class="nobr" title="Using agile and scalable practices we: decrease development time while also making it easier to add/modify content">efficient development</span>, we create impressive websites on-time and on-budget. Prior to launch, a final <span data-toggle="tooltip" title="Quality Assurance experts (hired externally)">QA</span> will assure your site is ready to truly amaze the public.</p>
+  <p>Even after launch, we're always by your side with lightning-fast turnaround time.</p>
+
+{% else %}
+
+  <h2>By <i>Durable</i>, we mean:</h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <ul>
+        <li><span data-toggle="tooltip" title="Including Mac, Windows, iPhone, iPad, and all other Android devices.">Compatible with all platforms</span></li>
+        <li><span data-toggle="tooltip" title="Including Chrome, Firefox, Safari and Internet Explorer.">Cross-browser optimized</span></li>
+        <li><span data-toggle="tooltip" title="A complimentary CMS-like system comes with all our custom websites.">Easy and safe to update content</span></li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <ul>
+        <li><span data-toggle="tooltip" title="Scalability means easy to add new pages, content or modify anything while still maintaining consistency.">Always scalable and consistent</span></li>
+        <li><span data-toggle="tooltip" title="QA experts assures the website is rock-solid and meets all requirements.">Bug-free</span></li>
+        <li><span data-toggle="tooltip" title="New sites and features are pushed to a secure &quot;Preview site&quot; for your approval prior to a big production deploy.">Secure 3-layer deploys</span></li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+
+  </div>
+  <p class="lead hidden-xs"><i>Durability</i> is just one of three essential components; <a class="nobr" href="#/usability">Usability is equally important &rsaquo;</a></p>
+
+{% endif %}

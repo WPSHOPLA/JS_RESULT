@@ -1,0 +1,78 @@
+@import 'shared/constants';
+@import 'shared/mixins';
+
+body
+{
+  > main
+  {
+    padding-top: 130px;
+    padding-bottom: 35px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: $white;
+
+    .page-title
+    {
+      color: black;
+
+      h1
+      {
+        font-size: 1.8em;
+      }
+
+      h1, h2
+      {
+        font-weight: 100;
+      }
+    }
+
+    .right-sidebar
+    {
+      text-align: center;
+
+      .socialmedia
+      {
+        a
+        {
+          display: block;
+          font-size: 2.5em;
+        }
+      }
+    }
+  }
+}
+
+// MOBILE STYLES
+@media (max-width: $screen-xs-max)
+{
+  body
+  {
+    >main
+    {
+      padding-top: 65px;
+      padding-bottom: 25px;
+
+      .page-title
+      {
+        text-align: center;
+        margin: -20px -30px 15px -30px;
+        padding: 15px;
+        background: image-url('placeholders/bamboo2.jpg') 0 0 repeat-x;
+      }
+    }
+  }
+
+  // Blog page mobile style
+  body.page-blog
+  {
+    .blog-content
+    {
+      text-align: center;
+
+      .blog-post-title
+      {
+        margin-top: 15px;
+      }
+    }
+  }
+}

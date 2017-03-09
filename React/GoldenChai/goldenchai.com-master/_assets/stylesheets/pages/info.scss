@@ -1,0 +1,185 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+
+body
+{
+  footer
+  {
+    #footer-content
+    {
+      #info
+      {
+        .accordion
+        {
+          margin-bottom: 20px;
+
+          .panel
+          {            
+            .accordion-title
+            {
+              color: inherit;
+
+              .chai-table
+              {
+                opacity:0;
+                position: absolute;
+                right:0;
+                top:0;
+                @include transition(opacity ($defaultTransitionSpeed*3));
+              }
+
+              .profile-img
+              {
+                opacity:0;
+                position: absolute;
+                right:0;
+                top:0;
+                height: 100%;
+                @include transition(opacity ($defaultTransitionSpeed*3));
+              }
+            }
+
+          [data-show-profile]
+          {
+            cursor: help;
+          }
+
+            &.active
+            {
+              .accordion-title
+              {
+                .chai-table
+                {
+                  opacity: 0.8;
+                }                
+              }
+
+              &.show-profile
+              {
+                .accordion-title
+                {
+                  .chai-table
+                  {
+                    opacity: 0.1;
+                  }
+
+                  .profile-img
+                  {
+                    opacity: 1;
+                  }
+                }
+              }
+            }
+
+            &.accordion-item-about
+            {
+              position: relative;
+              overflow: hidden;
+
+              .accordion-content
+              {
+                padding-right: 200px;
+              }
+            }
+          }
+        }
+
+        .button.footer-cta-button
+        {
+          position: absolute;
+          bottom: 15px;
+          right: 0;
+        }
+
+        .nav-tabs
+        {
+          border: 0;
+          margin-top: 20px;
+
+          li
+          {
+            background: rgba($gray60, 0.2);
+            text-align: center;
+            margin-right: 30px;
+            width: 60px;
+            height: 60px;
+            @include circle(60px);
+
+            a
+            {
+              height: inherit;
+              width: inherit;
+              line-height: 60px;
+            }
+
+            &:hover
+            {
+              background: rgba(lighten($golden, 10), 0.4);              
+            }
+
+            &.active, &.active:hover
+            {
+              background: rgba($golden, 0.8);              
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: $screen-sm-max)
+{
+  body
+  {
+    footer
+    {
+      #footer-content
+      {
+        #info
+        {
+          .accordion
+          {
+            .panel
+            {    
+              .accordion-title
+              {
+                .chai-table, .profile-img
+                {
+                  display: none !important;
+                }
+              }
+
+              &.accordion-item-about
+              {
+                .accordion-content
+                {
+                  padding-right: 0;
+                }                
+              }
+            }
+          }
+
+          .nav-tabs
+          {
+            li
+            {
+              margin-right: 5px;
+              width: 40px;
+              height: 40px;
+              @include circle(40px);
+
+              a
+              {
+                line-height: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

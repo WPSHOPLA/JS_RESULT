@@ -1,0 +1,197 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
+
+
+html.wf-loading
+{
+  body
+  {
+    opacity: 0;
+  }
+}
+
+html.wf-active, html.wf-inactive
+{
+  body
+  {
+    opacity: 1;
+    @include transition(opacity $defaultTransitionSpeed);
+
+    #manifestos .container .inner-wrapper .main-content .tab-content
+    {
+      .content-summary
+      {
+        visibility: visible;
+      }
+    }
+  }
+
+  .preloader
+  {
+    display: none;
+  }
+}
+
+
+body
+{
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  
+  .container
+  {
+    .inner-wrapper
+    {
+      position: relative;
+      margin: 40px auto;
+      height: inherit;
+    }
+  }
+
+  .window
+  {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 110px;
+    overflow: hidden;
+
+    &.lazy-load
+    {
+      opacity: 0;
+    }
+  }
+
+  &.index.site-single-page
+  {
+    overflow-y: scroll;    
+  }
+
+  &.index.site-multiple-pages
+  {
+    section.window
+    {
+      &.subpage
+      {
+        display: none;
+      }
+    }
+  }
+
+
+
+  // VIDEOS
+  .bg-video
+  {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    z-index: -1;
+
+    video
+    {
+      width: 100% !important;
+      opacity: 0.1;
+    }
+
+    &.video-top
+    {
+      top: 0;
+      height: 250px;
+
+      .video-fader
+      {
+        position: absolute;
+        bottom: 0;
+        height: 200px;
+        width: 100%;
+        @include gradient-vertical(rgba($black, 0), rgba($black, 1))
+      }
+    }
+
+    &.video-bottom
+    {
+      bottom: 0;
+    }
+  }
+
+
+  .visible-inverted-mode-1-durability, .visible-inverted-mode-1-usability, .visible-inverted-mode-1-art,
+  .visible-inverted-mode-2-durability, .visible-inverted-mode-2-usability, .visible-inverted-mode-2-art
+  {
+    opacity: 0;
+    @include transition(opacity $slowTransitionSpeed);
+  }
+}
+
+
+/* MEDIA QUERIES */
+
+.user-notification
+{
+  display: none;
+  position: fixed;
+  width: 100%;
+  color: $black;
+  text-align: center;
+  padding: 4px 0;
+  background: rgba($zen-red, 0.2);
+  z-index: 999999;
+}
+
+body.site-multiple-pages.screen-desktop, body.site-multiple-pages.screen-laptop
+{
+  .user-notification
+  {
+    display: block;
+  }
+}
+
+@media (max-width: $screen-sm-max) {
+  /* Sometimes, you just want to be different on small screens */
+  .center-on-mobiles {
+    text-align: center !important;
+  }
+  .hide-on-mobiles {
+    display: none !important;
+  }
+}
+
+
+@media (max-width: $screen-sm)
+{
+  html, body
+  {
+    min-height: 100%;
+  }
+
+  body
+  {
+    .container
+    {
+      width: 100%;
+    }
+
+    .window
+    {
+      position: static;
+      height: auto;
+    }
+  }
+}
+
+
+@media (max-width: $screen-xs-max), (min-width: $screen-phone) and (max-width: $screen-tablet) and (orientation: landscape)
+{
+  body
+  {
+    .window
+    {
+      padding-top: 55px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<div class="socialmedia">
+  <a href="/cart" class="cart" title="Shopping Cart">
+    <span class="icon-cart"></span>
+    <span id="cart-count">{{ cart.item_count }}</span>
+    Cart
+  </a>
+  {% include 'customer_links' %}
+
+    <a href="http://facebook.com/matchasofa" target="_blank"><i class="fa fa-facebook"></i></a>
+  <a href="http://facebook.com/matchasofa" target="_blank"><i class="fa fa-twitter"></i></a>
+  <a href="http://facebook.com/matchasofa" target="_blank"><i class="fa fa-instagram"></i></a>
+  <a href="http://facebook.com/matchasofa" target="_blank"><i class="fa fa-pinterest"></i></a>
+  <a href="http://facebook.com/matchasofa" target="_blank"><i class="fa fa-google-plus"></i></a>
+
+  {% if inlude.fblike == "true" %}
+    <div class="fb-like" data-href="http://matchasofa.com" data-width="50" data-layout="button" data-action="like" data-show-faces="true" data-share="false"></div>
+  {% endif %}
+</div>

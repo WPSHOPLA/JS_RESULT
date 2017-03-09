@@ -1,0 +1,29 @@
+body.site-single-page.screen-laptop #workflow,
+body.site-single-page.screen-desktop #workflow
+{
+  -skrollr-animation-name: workflow_opacity;
+}
+
+
+@-skrollr-keyframes workflow_opacity{
+  {{ site.workflow_pre_start }} {
+    opacity: 0;
+    z-index: 0;
+  }
+
+  {{ site.workflow_start }} {
+    opacity: 1;
+    z-index: 9;
+  }
+
+  {{ site.workflow_pre_end }} {
+    opacity: 1;
+    z-index: 9;
+  }
+
+  {{ site.workflow_end }} {
+    opacity: 0;
+    z-index: 0;
+  }
+
+}

@@ -1,0 +1,462 @@
+@import '../shared/constants';
+@import '../shared/mixins';
+
+/* tools */
+
+.post-template {
+  /* Header */
+  /* based on http://tympanus.net/Development/ArticleIntroEffects/index3.html */
+  /* Trigger Button */
+  /* Conent */
+  /* -------------------------- */
+  /* Sliced */
+  /* based on http://tympanus.net/Development/ArticleIntroEffects/index3.html
+  /* -------------------------- */
+  /* Delays */
+}
+
+
+.post-template
+{
+  .summer-post-header
+  {
+    margin: 0 auto;
+    min-height: 35rem;
+    width: 100%;
+  }
+
+  .bg-img
+  {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-backface-visibility: hidden;
+
+    img
+    {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      min-width: 100%;
+      min-height: 100%;
+      max-width: none;
+    }
+  }
+
+  .summer-post-header .summer-post-title
+  {
+    z-index: 1000;
+    margin: 0 auto;
+    padding: 0 1.25em;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .summer-post-content
+  {
+    border-bottom: 1px solid black;
+    padding: 30px 0;
+    margin-bottom: 30px;
+  }
+
+  .summer-post-header,
+  .summer-post-header-simple
+  {
+    border-bottom: 1px solid black;
+
+    .summer-post-title
+    {
+      text-align: center;
+
+      h1
+      {
+        font-weight: 800;
+        font-size: 4em;
+        margin: 0 auto;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  button.trigger
+  {
+    position: fixed;
+    bottom: 2.5rem;
+    left: 50%;
+    z-index: 5000;
+    display: block;
+    margin-left: -0.5em;
+    padding: 0;
+    width: 1em;
+    height: 1em;
+    border: none;
+    background: transparent;
+    color: transparent;
+    font-size: 4em;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      bottom: 100%;
+      left: -450%;
+      width: 1000%;
+      color: black;
+      content: attr(data-info);
+      font-size: 3rem;
+      text-transform: uppercase;
+      -webkit-backface-visibility: hidden;
+    }
+
+    &:focus
+    {
+      outline: none;
+    }
+
+    span
+    {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+    }
+
+    span::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      color: black;
+      content: "\f078";
+      text-transform: none;
+      font-weight: normal;
+      font-style: normal;
+      font-variant: normal;
+      font-family: 'FontAwesome';
+      line-height: 1;
+      speak: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+  }
+
+  .background--light
+  {
+    &.trigger::before,
+    &.trigger span::before,
+    .summer-post-title h1
+    {
+      color: black !important;
+    }
+  }
+
+  .background--dark
+  {
+    &.trigger::before,
+    &.trigger span::before,
+    .summer-post-title h1
+    {
+      color: white !important;
+    }
+  }
+
+  .summer-post-container:not(.notrans) button.trigger
+  {
+    -webkit-transition: opacity 0.3s 0.5s;
+    transition: opacity 0.3s 0.5s;
+  }
+
+  .summer-post-container.modify:not(.notrans) button.trigger
+  {
+    opacity: 0;
+    pointer-events: none;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
+  }
+
+  .summer-post-content > div:not(.summer-post-title) p.with-image
+  {
+    text-align: center;
+    padding-top: 1.125rem;
+    padding-bottom: 1.125rem;
+    max-width: 75rem;
+  }
+
+  .intro-effect-sliced
+  {
+    &:not(.notrans)
+    {
+      .bg-img,
+      .summer-post-title
+      {
+        -webkit-transition-property: -webkit-transform;
+        transition-property: transform;
+      }
+
+      .summer-post-header h1
+      {
+        -webkit-transition-property: color;
+        transition-property: color;
+      }
+
+      .summer-post-header p
+      {
+        -webkit-transition-property: opacity;
+        transition-property: opacity;
+      }
+
+      .summer-post-content > div
+      {
+        -webkit-transition-property: -webkit-transform, opacity;
+        transition-property: transform, opacity;
+      }
+
+      .bg-img,
+      .summer-post-header h1,
+      .summer-post-title,
+      .summer-post-header p,
+      .summer-post-content > div
+      {
+        -webkit-transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+        transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1);
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+      }
+    }
+
+    &.modify:not(.notrans) .summer-post-header h1,
+    &.modify:not(.notrans) .summer-post-title,
+    &.modify:not(.notrans) .summer-post-header p,
+    &.modify:not(.notrans) .summer-post-content > div
+    {
+      -webkit-transition-timing-function: ease;
+      transition-timing-function: ease;
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+      -webkit-transition-delay: 0.1s;
+      transition-delay: 0.1s;
+    }
+
+    .bg-img:first-child
+    {
+      bottom: 50%;
+    }
+
+    .bg-img:last-child
+    {
+      top: 50%;
+      position: fixed;
+      z-index: 900;
+    }
+
+    .bg-img:last-child img
+    {
+      top: -100%;
+    }
+
+    &.modify
+    {
+      .bg-img:first-child
+      {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+      }
+
+      .bg-img:last-child
+      {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+      }
+
+      .summer-post-title
+      {
+        -webkit-transform: translateX(-50%) translateY(-50%) scale(1);
+        transform: translateX(-50%) translateY(-50%) scale(1);
+      }
+    }
+
+    &.modify .summer-post-header p
+    {
+      opacity: 1;
+    }
+
+    &.modify .summer-post-header h1
+    {
+      color: black;
+    }
+
+    &.modify .summer-post-content > div
+    {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    &.modify:not(.notrans) .summer-post-title
+    {
+      -webkit-transition-delay: 0.1s;
+      transition-delay: 0.1s;
+    }
+
+    .summer-post-title
+    {
+      -webkit-transform: translateX(-50%) translateY(-50%) scale(0.7);
+      transform: translateX(-50%) translateY(-50%) scale(0.7);
+    }
+
+    .summer-post-header p
+    {
+      opacity: 0;
+      color: black;
+    }
+
+    .summer-post-content > div
+    {
+      -webkit-transform: translateY(200px);
+      transform: translateY(200px);
+      opacity: 0;
+    }
+  }
+
+  ul
+  {
+    text-align: left;
+  }
+
+  .share
+  {
+    padding: 0px 0 0px 0;
+    font-size: 2.5em;
+    a
+    {
+      margin-right: 20px;
+    }
+  }
+}
+
+
+/* Page conent */
+      .summer-page-content > div:not(.summer-page-title) p.with-image {
+        text-align: center;
+        padding-top: 1.125rem;
+        padding-bottom: 1.125rem;}
+
+pre {
+  word-wrap: break-word;
+  margin-bottom: 1.5625rem; }
+
+iframe {
+  border: 0; }
+
+  .summer-disqus .summer-comments-header {
+    font-weight: 700;
+    text-transform: uppercase; }
+.post-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.post-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    *zoom: 1;
+}
+
+.post-list li:after,.post-list li:before {
+    display: table;
+    line-height: 0;
+    content: "";
+}
+
+.post-list li:after {
+    clear: both;
+}
+
+.post-list a>span {
+    float: right;
+}
+
+.post-list .entry-date {
+    display: none;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+
+.tag-box
+{
+  padding: 4px 0;
+  margin: 0;
+  overflow: hidden;
+  list-style: none;
+  *zoom: 1;
+
+  &:after,
+  &:before {
+    display: table;
+    line-height: 0;
+    content: "";
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  &.inline li {
+    float: left;
+    font-size: 14px;
+    line-height: 2.5;
+  }
+
+  a {
+    padding: 4px 6px;
+    margin: 2px;
+    text-decoration: none;
+    border: 0.0625rem solid black;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+  }
+
+  a span
+  {
+    font-size: 10px;
+    vertical-align: super;
+    color: black;
+  }
+}
+
+
+// MOBILE STYLES
+@media (max-width: $screen-xs-max)
+{
+  body
+  {
+    .post-template
+    {
+      .summer-post-header,
+      .summer-post-header-simple
+      {
+        .summer-post-title
+        {
+          h1
+          {
+            font-size: 3em;
+          }
+        }
+      }
+    }
+  }
+}

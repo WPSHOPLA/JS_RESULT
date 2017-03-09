@@ -1,0 +1,37 @@
+@import 'constants';
+@import 'mixins';
+
+body
+{
+  input, input:focus
+  {
+    outline: none;
+  }
+
+  .btn
+  {
+    text-transform: uppercase;
+
+    &.btn-add
+    {
+      color: $white;
+      background-color: $green;
+    }
+
+    &.btn-subtract
+    {
+      background-color: $grey90;
+    }
+
+    &.btn-inverted
+    {
+      background-color: $white;
+    }
+
+    &.btn-green
+    {
+      color: $white;
+      background-color: $green;
+    }
+  }
+}

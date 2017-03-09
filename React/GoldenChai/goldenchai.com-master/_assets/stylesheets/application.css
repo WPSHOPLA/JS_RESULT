@@ -1,0 +1,38 @@
+/**
+  *= require bootstrap-application
+
+  *= require './lib/animations.css'
+  *= require './lib/royalslider.css'
+  *= require './lib/rs-default.scss'
+  *= require './lib/boxshadows.css'
+  *= require './lib/twentytwenty.scss'
+  *= require './lib/progressButton.scss'
+
+  *= require './components.scss'
+
+  *= require './layout.scss'
+  *= require './header.scss'
+  *= require './footer.scss'
+  *= require './primaryNav.scss'
+
+  *= require './pages/info.scss'
+  *= require './pages/manifestos.scss'
+  *= require './pages/durability.scss'
+  *= require './pages/usability.scss'
+  *= require './pages/art.scss'
+
+  *= require './pages/workflow.scss'
+  *= require './pages/features.scss'
+
+  *= require './mobile.scss'
+  *= require './desktop.scss'
+
+  *= require './gc-slider.scss'
+
+  *= require './firefox.scss'
+  *= require './ie.scss'
+
+  *= require './inverted-mode-1.scss'
+  *= require './inverted-mode-2.scss'
+
+  */

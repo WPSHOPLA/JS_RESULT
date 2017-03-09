@@ -1,0 +1,130 @@
+---
+layout: subpage
+title: info
+class: info
+---
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs hidden-xs" data-tabs role="tablist" id="infoTabs">
+  <li class="active"><a href="#concept" role="tab" data-toggle="tab"><h4>The Concept</h4></a></li>
+  <li><a href="#team" role="tab" data-toggle="tab"><h4>The Team</h4></a></li>
+  <li><a href="#materials" role="tab" data-toggle="tab"><h4>Materials</h4></a></li>
+  <li><a href="#shipping" role="tab" data-toggle="tab"><h4>Shipping</h4></a></li>
+  <li><a href="#faq" role="tab" data-toggle="tab"><h4>FAQs</h4></a></li>
+</ul>
+
+
+<!-- Tab panes (for desktop) -->
+<div class="tab-content hidden-xs">
+  <div class="tab-pane fade in active" id="concept">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <p>This highly versatile sofa creates more space in your home. By serving many functions, it eliminates the need for a lot of your furniture.</p>
+        <p>The sofa also converts into an Ottoman, memory foam bed, bamboo table, Chaise lounge, and whichever configuration you like.</p>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <p>Because of it's modularity, you can change your living room in seconds. This makes your space more personal and reflects your mood.</p>
+        <p>Shape your living room to make you, or your guests, feel truly welcome. You can now host any event right at home.</p>
+        <p></p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-pane fade" id="team">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <img class="img-responsive" src="{{ 'placeholders/person-placeholder.png' | asset_path }}">
+        <div class="readmore">
+          <h2 class="text-center">You?</h2>
+          <p></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <img class="img-responsive" src="{{ 'placeholders/julian.jpg' | asset_path }}">
+        <div class="readmore">
+          <h2 class="text-center">Julian Jorgensen</h2>
+          <p>Born and raised in Denmark in the small town where LEGO first started. His parents built LEGO sculptures for living.</p>
+          <p>Starting at age 13, Julian was involved in numerous startups; from fashion clothing to electronics. He has contracted for many marketing agencies building corporate websites (with clients such as Adobe Inc. and real estate developers).</p>
+          <p>He travelled through Asia many years, living in Himalayas, Japan and Thailand. Influenced by Zen thinking, he found his true passion; creating more space in homes.</p>
+          <p>Julians goal in business is, to merge furniture and technology. From design to ordering - the furniture industry could face a new revolution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-pane" id="materials">
+    <p>We've used eco-friendly products such as Bamboo wood, bamboo foam and Ramie fibre. These materials are not only sustainable, but also have superior properties of their synthetic/non-sustainable siblings.</p>
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <img class="img-responsive" src="{{ 'placeholders/green-foam.png' | asset_path }}">
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h3>Matcha Foam</h3>
+        <p>The Green tea eliminates the normal odour from foam when unpacking.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <img class="img-responsive" src="{{ 'placeholders/memoryfoam.png' | asset_path }}">
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h3>Memory foam</h3>
+        <p>More comfy than you can imagine</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <img class="img-responsive" src="{{ 'placeholders/bamboo2.jpg' | asset_path }}">
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h3>Bamboo wood (eco-friendly)</h3>
+        <p>All wood is harvested in local Chinese province.</p>
+        <p>Download full composition specs here.</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <img class="img-responsive" src="{{ 'placeholders/matcha_fabric.jpg' | asset_path }}">
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <h3>100% Organic Ramie fabric</h3>
+        <p>Grown locally in China. Died with natural colours.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-pane" id="shipping">
+    <p>Details about shipping and returns</p>
+  </div>
+
+  <div class="tab-pane" id="faq">
+    {% assign counter=0 %}
+    {% assign cat_counter=0 %}
+    {% assign cat_size = site.data.faqs.size | divided_by:2 %}
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+
+          {% for category in site.data.faqs limit:cat_size %}
+            {% include faqs.html %}
+          {% endfor %}
+
+        </div>
+        <div class="col-xs-12 col-sm-6">
+
+          {% for category in site.data.faqs limit:cat_size offset:cat_size %}
+            {% include faqs.html %}
+          {% endfor %}
+
+        </div>
+      </div>
+
+    <p>Didn't find your answer? Just <a href="/contact">contact us</a>.</p>
+  </div>
+</div>

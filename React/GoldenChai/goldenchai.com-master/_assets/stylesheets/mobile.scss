@@ -1,0 +1,346 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+
+
+// TABLET BOTH PORTRAIT AND LANDSCAPE STYLES
+@media (min-device-width: $screen-phone) and (max-device-width: $screen-tablet) and (orientation: portrait), (min-device-width: $screen-phone) and (max-device-width: $screen-tablet) and (orientation: landscape)
+{
+  body
+  {
+    &.footer-active
+    {
+      header
+      {
+        height: 80px;
+        padding-top: 0 !important;
+        padding-bottom: 0;
+
+        .goldenchai-logo-wrapper
+        {
+          bottom: 20px;
+        }
+
+        #mobile-nav-icon
+        {
+          display: block;
+          bottom: 20px;
+        }
+      }
+
+      footer
+      {
+        .footer-nav
+        {
+          top: 80px;
+        }
+      }
+    }
+  }
+}
+
+
+// TABLET PORTRAIT SPECIFIC STYLES
+@media (min-device-width: $screen-phone) and (max-device-width: $screen-tablet) and (orientation: portrait)
+{
+  body, .btn
+  {
+    font-size: $font-size-tablet-portrait;    
+  }
+
+  h1{font-size: $font-size-tablet-portrait-h1;}
+  h2{font-size: $font-size-tablet-portrait-h2;}
+  h3{font-size: $font-size-tablet-portrait-h3;}
+  h4{font-size: $font-size-tablet-portrait-h4;}
+  h5{font-size: $font-size-tablet-portrait-h5;}
+  h6{font-size: $font-size-tablet-portrait-h6;}
+
+  body
+  {
+    margin-top: 50px;
+
+    @include largeHeader();
+    @include largeMarquee();
+
+    &.page-features
+    {
+      section#features
+      {
+        margin-top: 30px;
+
+        .nav-tabs
+        {
+          margin-top: 40px;
+        }
+
+        .design-concept
+        {
+          top: 40px;
+
+          h2
+          {
+            font-size: 2em;
+            top: 100px;
+          }
+
+          .design-concept-group
+          {
+            opacity: 1 !important;
+
+            &.design-concept-group-1
+            {
+              top: 0;
+            }
+
+            &.design-concept-group-2
+            {
+              top: 100px;
+            }
+
+            .design-concept-ball
+            {
+              font-size: 0.6em;
+            }
+
+            .design-concept-ball-1, .design-concept-ball-2
+            {
+              top: -40px;
+            }
+
+            .design-concept-ball-3, .design-concept-ball-4
+            {
+              bottom: -40px;
+            }
+
+            .design-concept-ball-1, .design-concept-ball-3
+            {
+              left: -30px;
+            }
+
+            .design-concept-ball-2, .design-concept-ball-4
+            {
+              right: -30px;
+            }
+
+          }
+
+          .design-concept-ball
+          {
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+
+    footer
+    {
+      top: 190px;
+    }
+  }
+}
+
+// TABLET LANDSCAPE SPECIFIC STYLES
+@media (min-width: $screen-phone) and (max-width: $screen-tablet) and (orientation: landscape)
+{
+  body, .btn
+  {
+    font-size: $font-size-tablet-landscape;
+  }
+
+  h1{font-size: $font-size-tablet-landscape-h1;}
+  h2{font-size: $font-size-tablet-landscape-h2;}
+  h3{font-size: $font-size-tablet-landscape-h3;}
+  h4{font-size: $font-size-tablet-landscape-h4;}
+  h5{font-size: $font-size-tablet-landscape-h5;}
+  h6{font-size: $font-size-tablet-landscape-h6;}
+
+  body
+  {
+    .container .inner-wrapper
+    {
+      margin: 20px auto;
+    }
+
+    #manifestos
+    {
+      #marquee-wrapper
+      {
+        margin-top: 20px;
+        height: 110px;
+
+        #marquee
+        {
+          .marquee-headline h1
+          {
+            font-size: 1.4em;
+            margin-top: 0;        
+          }
+
+          .nav
+          {
+            font-size: 2em;
+          }          
+        }
+      }
+    }
+
+    &.page-features
+    {
+      section#features
+      {
+        .nav-tabs
+        {
+          margin-top: 20px;
+          padding-bottom: 14px;
+          margin-bottom: 20px;
+
+          li
+          {
+            margin: 0 12px;
+
+            &.active
+            {
+              &:before {
+                top: 8px;
+              }
+
+              &:after {
+                top: 5px;
+              }
+            }
+          }
+        }
+
+        .design-concept
+        {
+          top: 40px;
+          left: auto !important;
+
+          h2
+          {
+            font-size: 2.4em;
+            top: 65px;
+            left: 100px;
+          }
+
+          .design-concept-group
+          {
+            opacity: 1 !important;
+
+            &.design-concept-group-1
+            {
+              right: 30px;
+              float: right;
+            }
+
+            &.design-concept-group-2
+            {
+              top: 140px;
+              left: 0;
+            }
+
+            .design-concept-ball
+            {
+              font-size: 0.6em;
+            }
+
+            .design-concept-ball-1, .design-concept-ball-2
+            {
+              top: -40px;
+            }
+
+            .design-concept-ball-3, .design-concept-ball-4
+            {
+              bottom: -40px;
+            }
+
+            .design-concept-ball-1, .design-concept-ball-3
+            {
+              left: -30px;
+            }
+
+            .design-concept-ball-2, .design-concept-ball-4
+            {
+              right: -30px;
+            }
+
+          }
+
+          .design-concept-ball
+          {
+            opacity: 1 !important;
+          }
+        }
+      }
+    }
+
+    footer
+    {
+      top: 130px;
+    }
+  }
+}
+
+// PHONE PORTRAIT SPECIFIC STYLES
+@media (max-width: $screen-phone) and (orientation: portrait)
+{
+  body, .btn
+  {
+    font-size: $font-size-phone-portrait;
+  }
+
+  h1{font-size: $font-size-phone-portrait-h1;}
+  h2{font-size: $font-size-phone-portrait-h2;}
+  h3{font-size: $font-size-phone-portrait-h3;}
+  h4{font-size: $font-size-phone-portrait-h4;}
+  h5{font-size: $font-size-phone-portrait-h5;}
+  h6{font-size: $font-size-phone-portrait-h6;}
+
+  body
+  {
+    footer
+    {
+      top: 130px;
+    }
+
+    .container .inner-wrapper
+    {
+      margin: 20px auto;
+    }
+  }
+}
+
+#phone-portrait-kicker
+{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 50px;
+  
+  quote
+  {
+    display: block;
+    color: $art-color;
+    font-size: 1.8em;
+    font-weight: 100; 
+  }
+}
+
+// PHONE LANDSCAPE SPECIFIC STYLES
+@media (max-width: $screen-phone) and (orientation: landscape)
+{
+  body
+  {
+    header, section, footer, #footer-kicker
+    {
+      display: none !important;
+    }
+
+    #phone-portrait-kicker
+    {
+      display: block;
+    }
+  }
+}

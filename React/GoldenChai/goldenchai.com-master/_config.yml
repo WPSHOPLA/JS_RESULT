@@ -1,0 +1,55 @@
+---
+title: GoldenChai
+baseurl: /
+
+#scrolling constants
+default_scroll_speed: 1500
+
+#responsive constants
+mobile_end_width: 480
+tablet_end_width: 768
+laptop_end_width: 1450 #when changing this number, also change in stylesheets/_constants.scss
+multipages_start_width: 768
+
+# scroll position constants (used in both .js and the keyframe .css files)
+manifestos_start: 0
+manifestos_content_pre_end: 200
+manifestos_pre_end: 200
+manifestos_content_end: 500
+manifestos_end: 1000
+
+workflow_pre_start: 1100
+workflow_start: 1500
+workflow_pre_end: 2400
+workflow_end: 2800
+
+features_pre_start: 3000
+features_start: 3400
+features_pre_end: 3800
+features_end: 4200
+
+
+#other site variables and configs
+exclude:
+- Gemfile
+- Gemfile.lock
+- lib
+assets:
+  dirname: assets
+  baseurl: /assets/
+  sources:
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+    - _assets/videos
+  bundles:
+    - 'application.css'
+    - 'application.js'
+  compress:
+    css: sass
+    js: uglifier
+  cachebust: hard
+  gzip:
+  - text/css
+  - application/javascript
+env: staging

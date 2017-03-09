@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "MATCHA"
+AuthUserFile /usr/home/julian/Websites/matchasofa.com/.htpasswd
+Require valid-user

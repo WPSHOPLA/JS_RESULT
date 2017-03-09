@@ -1,0 +1,140 @@
+---
+# RESPONSIVE VARIABLES
+mobile_end_width: 480
+tablet_end_width: 768
+laptop_end_width: 1450
+
+
+# SITE VARIABLES
+title: MATCHA SOFA
+description: Multi functional minimalistic furniture. Simplify your living.
+baseurl: /
+dev_url: http://localhost:4000
+stage_url: http://matchasofa.com
+prod_url: http://matchasofa.com
+url: http://matchaliving.com #default url
+logo_url: logo.png
+
+
+# SOCIAL MEDIA
+author: MATCHA SOFA #default author name
+fb_numeric_id: 584855071633081
+google_plus: matchasofa
+disqus_shortname: matchaliving
+twitter_handle: matchasofa
+twitter_id: 000
+twitter_img_thumb: logo.png # should be square and 120 x 120
+twitter_img_large: logo.png # should be square and 280 x 150
+
+share:            true
+
+
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    Asia/Dhaka
+future:      true
+highlighter: pygments
+markdown:    kramdown
+paginate:    5
+paginate_path: "/blog/page:num"
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /blog/:categories/:title
+
+tags_dir: /blog/tags
+
+
+
+# PROSE STUFF
+prose:
+  rooturl: '_posts'
+  siteurl: 'http://matchasofa.com/blog'
+  site: { "Style": "http://matchasofa.com/assets/shared.css" }
+  media: '_posts/images'
+  metadata:
+    _posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Title"
+      - name: "subtitle"
+        field:
+          element: "text"
+          label: "Sub title"
+      - name: "category"
+        field:
+          element: "select"
+          label: "Category"
+          options:
+            - name: 'None'
+              value: ''
+            - name: 'Furniture'
+              value: 'furniture'
+            - name: 'Products'
+              value: 'products'
+            - name: 'Lifestyle'
+              value: 'lifestyle'
+      - name: "tags"
+        field:
+          element: "multiselect"
+          label: "Tags"
+          alterable: true
+      - name: "published"
+        field:
+          element: "checkbox"
+          label: "Published"
+          help: "If Published, then it will appear on site after deploy"
+          value: "true"
+
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers:
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+
+gems:
+  - jekyll-sitemap
+
+# other site variables and configs
+exclude:
+- Gemfile
+- Gemfile.lock
+- lib
+- shopify
+include:
+- .htpasswd
+- .htaccess
+assets:
+  dirname: assets
+  baseurl: /assets/
+  sources:
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+    - _assets/videos
+  bundles:
+    - 'shared.css'
+    - 'shared.js'
+    - 'application.css'
+    - 'application.js'
+  compress:
+    css: sass
+    js: uglifier
+  cachebust: soft
+  gzip:
+  - text/css
+  - application/javascript

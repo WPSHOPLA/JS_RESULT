@@ -1,0 +1,106 @@
+---
+layout: layout
+class: features
+title: Features
+---
+
+<!-- INCLUDE THE HEADER -->
+{% include header.html %}
+
+<div class="bg-video">
+  <!-- BG VIDEO -->
+  <video autoplay loop>
+    <source src="{% asset_path roche.mp4 %}" type="video/mp4">
+    <source src="{% asset_path roche.webm %}" type="video/webm">
+  </video>
+</div>
+
+<main>
+  <div class="container-fluid">
+    <div class="row">
+      {% include page-title.html %}
+
+      <div class="col-xs-12 col-sm-10 col-sm-offset-0 col-md-9">
+        <div id="features-nav">
+          {% assign data = site.data.features %}
+
+
+          <div class="row">
+            <div class="col-xs-12">
+
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs hidden-xs" data-tabs role="tablist" id="infoTabs">
+                <li class="active"><a href="#multi-functional" role="tab" data-toggle="tab"><h4>Multi-functional</h4></a></li>
+                <li><a href="#modular" role="tab" data-toggle="tab"><h4>Modular</h4></a></li>
+                <li><a href="#quality" role="tab" data-toggle="tab"><h4>Quality</h4></a></li>
+                <li><a href="#green" role="tab" data-toggle="tab"><h4>Green</h4></a></li>
+              </ul>
+
+
+              <!-- Tab panes (for desktop) -->
+              <div class="tab-content hidden-xs">
+                <div class="tab-pane fade in active" id="multi-functional">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade" id="modular">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane" id="quality">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane" id="green">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                      <p>Lorem ipsum lorem ipsum dolar et lama. Lorem ipsum lorem ipsum dolar et lama.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!-- INCLUDE THE FOOTER -->
+{% include breadcrumb.html %}
+{% include footer.html %}

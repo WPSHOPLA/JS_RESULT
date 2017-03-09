@@ -1,0 +1,192 @@
+.twiddle-panes {
+  margin: 0;
+  margin-left: 0;
+  position: absolute;
+  top: $topbar-height;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  @media (min-width: $screen-md-min) {
+    display: -webkit-flex;
+    display: flex;
+  }
+
+  .twiddle-pane {
+    padding: 0;
+    height: 100%;
+    min-width: 200px;
+    border-right: 1px solid #e4e2e2;
+    cursor: normal;
+    position: relative;
+
+    @media (max-width: $screen-md-min) {
+      margin-bottom: 60px;
+    }
+  }
+
+  .twiddle-pane.code, .twiddle-pane.output {
+    -webkit-flex: 1;
+    flex: 1;
+  }
+
+  .twiddle-pane.file-tree {
+    @media (min-width: $screen-md-min) {
+      max-width: 40%;
+    }
+
+    > .ember-view {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .jstree {
+      height: 100%;
+      overflow-x: auto;
+      padding: 0 10px;
+    }
+  }
+
+  .handle + .twiddle-pane {
+    margin-left: -3px;
+  }
+
+  .output {
+    border-right: none;
+    position: relative;
+
+    .header {
+      padding-right: 28px;
+    }
+
+    span {
+      display: inline-block;
+    }
+
+    .content {
+      position: absolute;
+      top: 100px;
+      bottom: 0;
+      width: 100%;
+      border: 0;
+
+      iframe {
+        border: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+      }
+    }
+
+    span.glyphicon-plus {
+      cursor: pointer;
+    }
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: $code-header-height;
+    min-height: $code-header-height;
+    border-bottom: 1px solid $grey-3;
+    font-size: 16px;
+    background-color: $grey-1;
+
+    span+.build-msgs {
+      margin-left: 10px;
+    }
+
+    .nav-right {
+      margin-left: auto;
+    }
+
+    .glyphicon {
+      font-size: 0.8em;
+    }
+
+    .twiddlicon {
+      font-size: 1em;
+    }
+
+    .glyphicon, .twiddlicon {
+      text-align:center;
+      color: $header-icon-color;
+      text-shadow: 1px 1px 0px white;
+      cursor: pointer;
+      padding: 2px;
+    }
+
+    .twiddlicon:hover{
+      color: $grey-1;
+      background-color: $icon-bg;
+      border-radius: 20%;
+      padding: 2px;
+      text-shadow: $icon-shadow-hover;
+    }
+
+    .glyphicon-plus {
+      padding-bottom: 3px;
+      padding-left: 3px;
+    }
+
+    .glyphicon:hover {
+      color: #faf4f1;
+      background-color: #d6c3ba;
+      border-radius: 20%;
+      padding: 2px;
+      text-shadow: $icon-shadow-hover;
+    }
+
+    .glyphicon-plus:hover {
+      padding-bottom: 3px;
+      padding-left: 3px;
+    }
+
+    .nav-pills {
+      max-width: 90%;
+
+      > li {
+        max-width: 100%;
+
+        > a {
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  .full-screen {
+    .header {
+      display: none;
+    }
+
+    .run-or-live-reload {
+      display: none;
+    }
+  }
+
+  .exit-full-screen-link {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 100px;
+    margin-left: -50px;
+    text-align: center;
+    color: $dropdown-link-color;
+    cursor: pointer;
+  }
+}
+
+.gist-header {
+  position: relative;
+
+  > .visible-toolbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

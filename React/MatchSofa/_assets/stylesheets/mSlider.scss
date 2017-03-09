@@ -1,0 +1,111 @@
+@import 'shared/constants';
+@import 'shared/mixins';
+
+body
+{
+  .marqueeSlider
+  {
+    // ARROWS
+    // =========
+    .rsArrow {
+      width: 80px;
+      position: absolute;
+      top: 50%;
+      height: 80px;
+      margin-top: -40px;
+      display: block;
+      cursor: pointer;
+      z-index: 21;
+      background-color: $black;
+      opacity: 0.5;
+
+      &:hover
+      {
+        opacity: 1;
+      }
+
+      .rsArrowIcn {
+        position: absolute;
+        top: 50%;
+        margin-top: -25px;
+        height: 50px;
+      }
+
+      &.rsArrowLeft
+      {
+        left: 0px;
+
+        .rsArrowIcn
+        {
+          left: 25px;
+          @include arrow(25px, 3, $white, $black, left);
+        }
+      }
+
+      &.rsArrowRight
+      {
+        right: 0px;
+
+        .rsArrowIcn
+        {
+          right: 25px;
+          @include arrow(25px, 3, $white, $black, right);
+        }
+      }
+
+      &.rsArrowDisabled .rsArrowIcn { display: none; }
+    }
+
+
+    // VIDEO STUFF
+    // ==============
+    .rsPlayBtn {
+      -webkit-tap-highlight-color:rgba(0,0,0,0.3);
+      width:200px;
+      height:200px;
+      margin-left:-100px;
+      margin-top:-100px;
+    }
+
+    .rsPlayBtnIcon {
+      width:200px;
+      height:200px;
+      background: transparent image-url('placeholders/play-icon.png') center center no-repeat;
+    }
+
+    .rsPlayBtn:hover .rsPlayBtnIcon {
+      background-color: transparent;
+    }
+
+    .rsCloseVideoBtn
+    {
+      top: 15px;
+      right: 15px;
+      width: 50px;
+      height: 50px;
+
+      .rsCloseVideoIcn {
+        width: inherit;
+        height: inherit;
+        margin: 0;
+        background: none;
+        background-color: #fff;
+        background-color: rgba(255,255,255,0.75);
+        text-align: center;
+        line-height: 44px;
+        font-size: 2em;
+
+        &:before
+        {
+          content: "x";
+
+        }
+
+        &:hover
+        {
+          background-color: rgba(255,255,255,1);
+        }
+      }
+    }
+  }
+}

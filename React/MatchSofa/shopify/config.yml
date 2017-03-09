@@ -1,0 +1,11 @@
+---
+:api_key: fd47fb28fc2b0cb15467f0d820690b1d
+:password: 39241e25eeedde06a0cca0bdf8c35f8c
+:store: matchasofa-2.myshopify.com
+:theme_id:
+
+:ignore_files:
+- _assets/
+- .bundle
+- .sass-cache
+- Guardfile

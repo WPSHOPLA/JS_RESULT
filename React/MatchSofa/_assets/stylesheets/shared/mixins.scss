@@ -1,0 +1,190 @@
+@import "constants";
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+/* mixins */
+@mixin transition($transition)
+{
+  -webkit-transition: $transition;
+  -moz-transition: $transition;
+  -o-transition: $transition;
+  transition: $transition;
+}
+
+@mixin rounded_corners ($radius: 5px)
+{
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin blur($amount)
+{
+  -webkit-filter: blur($amount);
+  -moz-filter: blur($amount);
+  -o-filter: blur($amount);
+  -ms-filter: blur($amount);
+  filter: image-url("blur.svg#blur");
+  filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius='#{$amount}');
+}
+
+@mixin blurPerformanceHack()
+{
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -filter: translate3d(0, 0, 0);
+}
+
+@mixin disableHighlighting
+{
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@mixin triangle($triangle-size, $triangle-color, $triangle-direction)
+{
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: $triangle-size solid transparent; /* arrow size */
+
+  @if ($triangle-direction == top)
+  {
+      border-color: $triangle-color transparent transparent transparent;
+      border-top-style: solid;
+  }
+  @if ($triangle-direction == bottom)
+  {
+      border-color: transparent transparent $triangle-color transparent;
+      border-bottom-style: solid;
+  }
+  @if ($triangle-direction == right)
+  {
+      border-color: transparent transparent transparent $triangle-color;
+      border-left-style: solid;
+  }
+  @if ($triangle-direction == left)
+  {
+      border-color: transparent $triangle-color transparent transparent;
+      border-right-style: solid;
+  }
+}
+
+@mixin arrow($arrow-size, $arrow-thickness, $arrow-color, $arrow-bg, $arrow-direction, $arrow-offset: 0)
+{
+  /* top-stacked, smaller arrow */
+  &:before {
+    @include triangle($arrow-size, $arrow-bg, $arrow-direction);
+    position: absolute;
+
+    top: 0;
+    z-index: 2;
+
+    @if ($arrow-direction == left)
+    {
+      left: ($arrow-thickness - $arrow-size);
+    }
+    @if ($arrow-direction == right)
+    {
+      right: ($arrow-thickness - $arrow-size);
+    }
+    @if ($arrow-direction == bottom)
+    {
+      top: auto;
+      bottom: $arrow-offset;
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+    @if ($arrow-direction == top)
+    {
+      top: -($arrow-offset+$arrow-thickness);
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+  }
+
+  &:after {
+    @include triangle($arrow-size, $arrow-color, $arrow-direction);
+    position: absolute;
+
+    top: 0;
+    z-index: 1;
+
+    @if ($arrow-direction == left)
+    {
+      left: (-$arrow-size);
+    }
+    @if ($arrow-direction == right)
+    {
+      right: (-$arrow-size);
+    }
+    @if ($arrow-direction == bottom)
+    {
+      top: auto;
+      bottom: ($arrow-offset+$arrow-thickness);
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+    @if ($arrow-direction == top)
+    {
+      top: $arrow-offset;
+      width: ($arrow-size*2);
+      left: 50%;
+      margin-left: -($arrow-size);
+    }
+  }
+}
+
+@mixin circle($radius)
+{
+  border-top-right-radius: $radius;
+  border-top-left-radius: $radius;
+  border-bottom-right-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin boxshadow($shadow)
+{
+  -moz-box-shadow: $shadow;
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
+
+
+// Retina images
+//
+// Short retina mixin for setting background-image and -size
+
+@mixin img-retina($file-1x, $file-2x, $width-1x, $height-1x) {
+  background-image: $file-1x;
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: $file-2x;
+    background-size: $width-1x $height-1x;
+  }
+}
+
+
+
+@mixin rotate($degrees){
+  transform:rotate($degrees);
+  -ms-transform:rotate($degrees);
+  -webkit-transform:rotate($degrees);
+}

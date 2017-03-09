@@ -1,0 +1,23 @@
+---
+layout: layout
+---
+
+<!-- INCLUDE THE HEADER -->
+{% include header.html %}
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        {% include page-title.html %}
+
+        <div class="col-xs-12 col-sm-10 col-sm-offset-0 col-md-9">
+          {{ content }}
+        </div>
+
+        {% include sidebar.html %}
+      </div>
+    </div>
+  </main>
+
+{% include breadcrumb.html %}
+
+{% include footer.html %}

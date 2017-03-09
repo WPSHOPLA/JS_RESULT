@@ -1,0 +1,106 @@
+<!-- Begin frontpage no products -->
+<div class="note helper-note helper-homepage-products">
+  {% if shop.products_count == 0 %}
+    <i class="icon-products helper-icon"></i>
+    <h3>You haven't added any products yet</h3>
+    <p>It takes less than a minute to add a product to your store. Make sure you also add it to the <em>{{ collections[settings.frontpage_collection].title }}</em> collection to see it on the home page.</p>
+    <p><a class="admin-btn-primary" href="/admin/products/new">Add a product</a><a class="secondary-action" href="/products/example-product">View a sample product ›</a></p>
+  {% elsif collections[settings.frontpage_collection].products.size == 0 %}
+    <i class="icon-collections helper-icon"></i>
+    <h3>Almost there...</h3>
+    <p>Now add a product to the <em>{{ collections[settings.frontpage_collection].title }}</em> collection to see it on the home page.</p>
+    <p><a class="admin-btn-primary" href="/admin/collections">Add to collection</a><a class="secondary-action" href="http://docs.shopify.com/manual/your-store/collections?utm_source=default-theme&utm_medium=contextual&utm_campaign=default-theme-products-tooltips-experiment" target="shopify_info">Learn about collections ›</a></p>
+  {% endif %}
+</div>
+
+<div class="helper-content clearfix">
+
+  <div class="display-table featured-product span12">
+    <div class="p30">
+      <div class="display-table-cell featured-product-description">
+        <h2>Example Featured Product</h2>
+        <span class="price">
+          {{ '7999' | money }}
+        </span>
+        <div class="featured-product-description">
+          <p>Your store is looking a little empty! These placeholders will appear until you add your first product.</p>
+        </div>
+        <a class="btn">View Product</a>
+      </div>
+      <div class="display-table-cell featured-product-image">
+        <img src="{{ 'product-1.jpg' | asset_url }}" alt="Example product" />
+      </div>
+    </div><!-- p30 -->
+  </div><!-- display table -->
+
+  <div class="product span4">
+    <div class="image">
+      <img src="{{ 'product-2.jpg' | asset_url }}" alt="Example product" />
+    </div>
+    <div class="details">
+      <h4 class="title">Example Product title </h4>
+      <span class="price">
+        {{ '8499' | money }}
+      </span>
+    </div>
+  </div>
+  <div class="product span4 ">
+    <div class="image">
+      <img src="{{ 'product-3.jpg' | asset_url }}" alt="Example product" />
+    </div>
+    <div class="details">
+      <h4 class="title">Example Product title </h4>
+      <span class="price">
+        {{ '5999' | money }}
+      </span>
+    </div>
+  </div>
+  <div class="product span4">
+    <div class="image">
+      <img src="{{ 'product-4.jpg' | asset_url }}" alt="Example product" />
+    </div>
+    <div class="details">
+      <h4 class="title">Example Product title </h4>
+      <span class="price">
+        {{ '2999' | money }}
+      </span>
+    </div>
+  </div>
+  <div style="clear:both;"></div>
+  <div class="product span4">
+    <div class="image">
+      <img src="{{ 'product-5.jpg' | asset_url }}" alt="Example product" />
+    </div>
+    <div class="details">
+      <h4 class="title">Example Product title </h4>
+      <span class="price">
+        {{ '8499' | money }}
+      </span>
+    </div>
+  </div>
+  <div class="product span4 ">
+    <div class="image">
+      <img src="{{ 'product-6.jpg' | asset_url }}" alt="Example product" />
+    </div>
+    <div class="details">
+      <h4 class="title">Example Product title </h4>
+      <span class="price">
+        {{ '5999' | money }}
+      </span>
+    </div>
+  </div>
+  <div class="product span4">
+    <div class="image">
+      <img src="{{ 'product-7.jpg' | asset_url }}" alt="Example product" />
+    </div>
+    <div class="details">
+      <h4 class="title">Example Product title </h4>
+      <span class="price">
+        {{ '2999' | money }}
+      </span>
+    </div>
+  </div>
+  <div class="span12 border-bottom p30"></div>
+
+</div>
+<!-- End frontpage no products -->

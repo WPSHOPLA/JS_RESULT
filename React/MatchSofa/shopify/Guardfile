@@ -1,0 +1,39 @@
+notification :off
+
+
+# SHOPIFY STUFF:
+# =======================================
+# Use SASS to render and copy stylesheet files to assets directory with correct Shopify extension
+guard 'sass', :input => '_assets/stylesheets', :output => 'assets', :extension => ".scss.liquid", :all_on_start => true, :shallow => true, :style => :compressed
+
+
+# COPY ALL LIQUID FILES FROM STYLESHEETS DIRECTORY INTO /assets
+guard :copy, :from => '_assets/stylesheets', :to => 'assets', :run_at_start => true do
+  watch(%r{^.+\.liquid$})
+end
+
+
+# GENERATE APPLICATION.JS
+guard 'sprockets', :destination => 'assets', :root_file => '_assets/javascripts/application.js', :minify => true
+
+
+# COPY ALL LIQUID FILES FROM JAVASCRIPT DIRECTORY INTO /assets
+guard :copy, :from => '_assets/javascripts', :to => 'assets', :run_at_start => true do
+  watch(%r{^.+\.liquid$})
+end
+
+
+# OPTIMIZE IMAGES
+guard 'shell'  do
+  watch %r{^assets\/.+(\.png|\.jpg|\.jpeg|\.gif)} do |image|
+    `open -a ImageOptim #{image[0]}`
+  end
+end
+
+
+# Use shopify_theme gem to upload changes to the development store
+guard 'shell'  do
+  watch %r{^(assets|config|layout|snippets|templates)\/.*} do |m|
+    `theme upload #{m[0]}`
+  end
+end

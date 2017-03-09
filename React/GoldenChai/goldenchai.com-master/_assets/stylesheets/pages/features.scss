@@ -1,0 +1,281 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
+
+
+body.page-features
+{
+  header
+  {
+    .goldenchai-logo-wrapper
+    {
+      .goldenchai-logo
+      {
+        background-color: $gray6;
+
+        .logo-copy
+        {
+          .logo-golden
+          {
+            color: $goldenbrown;
+          }
+
+          .logo-chai
+          {
+            color: $gray70;
+          }
+        }
+      }
+    }
+  }
+}
+
+section#features
+{
+  background: $features-color;
+
+  #features-video
+  {
+    .video-fader
+    {
+      @include gradient-vertical(rgba($features-color, 0), rgba($features-color, 1))
+    }
+  }
+
+  .inner-wrapper
+  {
+    z-index: 9;
+  }
+
+  .nav-tabs
+  {
+    margin-top: 80px;
+    border-bottom: 2px solid $black;
+    margin-bottom: 30px;
+
+    li
+    {
+      position: relative;
+      font-size: 1.5em;
+      font-weight: 200;
+      display: inline-block;
+      margin: 0 19px -3px;
+      padding-bottom: 16px;
+      text-transform: uppercase;
+      opacity: 0.5;
+
+      &:hover
+      {
+        opacity: 0.8;
+      }
+
+      a
+      {
+        color: $black;
+      }
+
+      &.active
+      {
+        opacity: 1;
+        @include arrow(12px, 3px, $black, $features-color, bottom);
+      }
+    }
+  }
+
+  .tab-content
+  {
+    margin-bottom: 60px;
+
+    hr
+    {
+      border-top-color: $gray70;
+      opacity: 0.6;
+    }
+  }
+
+  .features-highlight
+  {
+    padding: 20px;
+    background: rgba($white, 0.1);
+  }
+
+  .cta-col
+  {
+    padding-top: 60px;
+  }
+
+  .socialmedia-icons
+  {    
+    .socialmedia-icon
+    {
+      display: inline-block;
+      width: 32px;
+      height: 32px;
+      margin: 0 8px 8px 0;
+      -webkit-filter: grayscale(1);
+
+      &:hover
+      {
+        -webkit-filter: grayscale(0);
+      }
+    }
+  }
+
+  .development-before-after
+  {
+    margin-bottom: 30px;
+
+    img
+    {
+      width: 100%;
+    }
+
+    .twentytwenty-overlay
+    {
+      display: none;
+    }
+  }
+
+  .design-concept
+  {
+    position: relative;
+    top: 100px;
+    left: 140px;
+
+    h2
+    {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      font-size: 1.8em;
+      z-index: 99;
+    }
+
+    .design-concept-group
+    {
+      position: relative;
+      opacity: 0;
+      padding-top: 42px;
+      width: 100px;
+      height: 100px;
+      @include circle(100px);
+      z-index: 99;
+
+      h3
+      {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 20px;
+      }
+
+      &.design-concept-group-dark
+      {
+        background: $turquoise;
+      }
+
+      &.design-concept-group-light
+      {
+        background: $bluewhite;
+      }
+
+      &.design-concept-group-2
+      {
+      }
+    }
+
+    .design-concept-ball
+    {
+      position: absolute;
+      background: $gray20;
+      opacity: 0;
+      text-align: center;
+      font-size: 0.9em;
+      padding-top: 22px;
+      width: 60px;
+      height: 60px;
+      @include circle(60px);
+
+      &.design-concept-ball-1
+      {
+        top: 0;
+      }
+
+      &.design-concept-ball-3
+      {
+        left: 40px;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-sm) {
+  body.page-features
+  {
+    background: $features-color;
+
+    &.footer-active
+    {
+      header
+      {
+        background: $features-color;
+      }
+
+      footer .footer-nav
+      {
+        @include gradient-vertical(rgba($features-color, 1), rgba($features-color, 0), 40%);
+      }
+    }
+
+    section#features
+    {
+      background: none;
+      
+      .nav-tabs
+      {
+        li
+        {
+          font-size: 1.2em;
+          margin: 0 12px -3px;
+
+          &:nth-child(0)
+          {
+            margin-left: 0;
+          }
+
+          &:last-child
+          {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs) {
+  body.page-features
+  {
+    section#features
+    {
+      .features-highlight
+      {
+        padding: 0;
+        background: none;
+      }
+
+      .nav-tabs
+      {
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 30px;
+
+        li
+        {
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<div class="secondary-accordion panel-group" id="{{ category.title | replace:" ","-" | downcase }}_accordion">
+  <h5 class="faq-category">{{ category.title }}</h5>
+  {% for faq in category.faqs %}
+    {% assign counter=counter | plus:1 %}
+    <div class="panel">
+      <h5 class="faq-question"><a data-toggle="collapse" data-parent="#{{ category.title | replace:" ","-" | downcase }}_accordion" href="#faq-{{ counter }}">{{ faq.question }}</a></h5>
+      <div id="faq-{{ counter }}" class="panel-collapse collapse">
+        <div class="panel-body"><div class="well">{{ faq.answer }}</div></div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

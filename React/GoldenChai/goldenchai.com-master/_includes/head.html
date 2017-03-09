@@ -1,0 +1,24 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <title>Minimalist web development. GoldenChai.</title>
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <!-- main stylesheet file -->
+  <link rel="stylesheet" type="text/css" href="{% asset_path application %}"/>
+
+  <!-- keyframes for skrollr -->
+  <link rel="stylesheet" type="text/css" href="/skrollr/keyframes.css" data-skrollr-stylesheet />
+
+  <script type="text/javascript" src="//use.typekit.net/qxk0qin.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <style>
+    body{opacity: 0;}
+    {% asset gc-slider-init.scss %}
+  </style>
+</head>

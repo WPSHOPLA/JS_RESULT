@@ -1,0 +1,393 @@
+@import 'constants';
+@import 'mixins';
+@import 'lib/bootstrap-3.0.3/_mixins';
+
+body
+{
+  // BREADCRUMB
+  .breadcrumbs
+  {
+    padding: 15px 30px;
+    background-color: $grey90;
+    margin: 0;
+
+    li
+    {
+      list-style-type: none;
+      display: inline-block;
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+  }
+
+  // READ MORE STYLES
+  // ================
+  .readmore
+  {
+  }
+
+  .readmore-js-toggle
+  {
+    text-transform: uppercase;
+    text-align: center;
+
+    &.readmore-js-toggle-more
+    {
+      position: relative;
+      top: -60px;
+      height: 60px;
+      padding: 60px 0 55px;
+      @include gradient-vertical(rgba(white, 0), white, 0%, 50%);
+
+      span
+      {
+        @include arrow(10px, 2px, black, white, top);
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        margin-left: -10px;
+        height: 20px;
+        width: 20px;
+      }
+
+      &:hover
+      {
+        span
+        {
+          @include arrow(10px, 2px, $green, white, top);
+        }
+      }
+    }
+  }
+
+
+  // NEWSLETTER STYLES
+  // =================
+  #mc_embed_signup
+  {
+    form
+    {
+      padding: 0 !important;
+    }
+
+    input.email,
+    input.button
+    {
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    #mce-EMAIL
+    {
+      margin-top: 15px;
+      width: 200px;
+      border-color: rgba($green, 0.5);
+      @include transition((font-size 0.2s, width 0.2s));
+
+      &:focus
+      {
+        width: 300px;
+        font-size: 2em;
+        border-color: $green;
+      }
+    }
+
+    #mc-embedded-subscribe
+    {
+      background-color: rgba($green, 0.7);
+      border-radius: 0;
+      height: auto;
+      width: 200px;
+      padding: 5px;
+      text-transform: uppercase;
+
+      &:hover
+      {
+        background-color: $green;
+      }
+    }
+  }
+
+  // Accordion styles
+  // ===========
+  .primary-accordion
+  {
+    > .panel
+    {
+      margin-bottom: 0;
+      border-bottom: 1px solid black;
+
+      .panel-title
+      {
+        font-weight: 100;
+        padding: 0;
+
+        a[data-toggle]
+        {
+          display: block;
+          padding: 15px 0;
+        }
+      }
+
+      .panel-body
+      {
+        padding: 15px;
+      }
+
+      &.active
+      {
+        .panel-title
+        {
+          background-color: rgba($green, 0.2);
+
+          a[data-toggle]
+          {
+            padding-left: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  // SECONDARY ACCORDION: SUCH AS FAQs
+  .secondary-accordion
+  {
+    margin-bottom: 20px;
+
+    .faq-category
+    {
+      margin: 30px 0 0;
+      font-weight: 600;
+    }
+
+    .panel
+    {
+      border-bottom: 1px solid $grey80;
+      padding-top: 15px;
+
+      .faq-question
+      {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+// NAV TABS COMPONENT
+// ===================
+body
+{
+  // TAB CONTENT
+  .tab-content
+  {
+    padding: 20px;
+  }
+
+  // NAV TABS
+  .nav-tabs
+  {
+    >li
+    {
+      margin: 0;
+
+      >a
+      {
+        border: 0;
+        margin: 0;
+      }
+
+      &.active
+      {
+        a
+        {
+          margin-bottom: -1px;
+        }
+      }
+    }
+  }
+}
+
+// NAV TABS FOR MEDIUM SCREEN STYLES
+@media (max-width: $screen-md-max)
+{
+  body
+  {
+    .nav-tabs
+    {
+      >li
+      {
+        >a
+        {
+          padding: 15px;
+        }
+      }
+    }
+  }
+}
+
+
+// NAV TABS FOR SMALL SCREEN STYLES
+@media (max-width: $screen-sm-max)
+{
+  body
+  {
+    .nav-tabs
+    {
+      >li
+      {
+        >a
+        {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+// END NAV TABS COMPONENT
+// ======================
+
+
+
+// FONT COLOURS
+.darkgrey
+{
+  color: $grey20;
+
+  a
+  {
+    color: $grey20;
+
+    &:hover
+    {
+      color: white;
+    }
+  }
+}
+
+.mediumgrey
+{
+  color: $grey50;
+
+  a
+  {
+    color: $grey50;
+
+    &:hover
+    {
+      color: white;
+    }
+  }
+}
+
+
+// LINE BREAK
+.line-break
+{
+  height: 10px;
+}
+
+
+// SMALL MARGINS AND PADDINGS
+.p-b-small
+{
+  padding-bottom: $small-space;
+}
+
+.p-t-small
+{
+  padding-top: $small-space;
+}
+
+.m-t-small
+{
+  margin-top: $small-space;
+}
+
+.m-b-small
+{
+  margin-bottom: $small-space;
+}
+
+
+
+// MEDIUM MARGINS AND PADDINGS
+.p-b-medium
+{
+  padding-bottom: $medium-space;
+}
+
+.p-t-medium
+{
+  padding-top: $medium-space;
+}
+
+.m-t-medium
+{
+  margin-top: $medium-space;
+}
+
+.m-b-medium
+{
+  margin-bottom: $medium-space;
+}
+
+
+// LARGE MARGINS AND PADDINGS
+.p-b-large
+{
+  padding-bottom: $large-space;
+}
+
+.p-t-large
+{
+  padding-top: $large-space;
+}
+
+.m-t-large
+{
+  margin-top: $large-space;
+}
+
+.m-b-large
+{
+  margin-bottom: $large-space;
+}
+
+// NO MARGINS AND PADDINGS
+.no-p
+{
+  padding: 0;
+}
+
+.no-m
+{
+  margin: 0;
+}
+
+
+body
+{
+  // SLIDER SPECIFIC STYLES
+  // ======================
+  .marqueeSlider
+  {
+    .rsABlock
+    {
+      left: auto;
+      right: 0;
+      top: 100px;
+      background-color: rgba($white, 0.8);
+      padding: 30px;
+    }
+  }
+
+
+  .socialmedia
+  {
+    .fb-like
+    {
+      line-height: 0;
+    }
+  }
+
+}

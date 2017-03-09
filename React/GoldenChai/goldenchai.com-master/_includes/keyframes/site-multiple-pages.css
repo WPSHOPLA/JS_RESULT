@@ -1,0 +1,72 @@
+/* MAKE CONTENT DISAPPEAR */
+body.site-multiple-pages.screen-tablet #marquee-wrapper, 
+body.site-multiple-pages.screen-mobile #marquee-wrapper
+{
+  -skrollr-animation-name:marquee-disappear;
+}
+
+@-skrollr-keyframes marquee-disappear {
+  0 {
+    opacity: 1;
+  }
+
+  80 {
+    opacity: 0.01;
+  }
+}
+
+
+body.site-multiple-pages.screen-tablet section.window, 
+body.site-multiple-pages.screen-mobile section.window
+{
+  -skrollr-animation-name:content-disappear;
+}
+
+@-skrollr-keyframes content-disappear {
+  120 {
+    opacity: 1;
+  }
+
+  280 {
+    opacity: 0.01;
+  }
+}
+
+
+body.site-multiple-pages.screen-mobile footer, 
+body.site-multiple-pages.screen-tablet footer
+{
+  -skrollr-animation-name:mobile-footer-appear;
+}
+
+@-skrollr-keyframes mobile-footer-appear {
+  300 {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  350 {
+    opacity: 1;
+    z-index: 99;
+  }
+}
+
+
+/* THE FOOTER MAIN CTA */
+body.site-multiple-pages.screen-mobile #footer-kicker, 
+body.site-multiple-pages.screen-tablet #footer-kicker
+{
+  -skrollr-animation-name:footer-kicker-appear;
+}
+
+@-skrollr-keyframes footer-kicker-appear {
+  350 {
+    opacity: 0;
+  }
+
+  400 {
+    opacity: 1;
+  }
+}
+
+/* END CONTENT DISAPPEAR */

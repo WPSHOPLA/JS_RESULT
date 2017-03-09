@@ -1,0 +1,206 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
+
+
+// DESKTOP PORTRAIT SPECIFIC STYLES
+@media (min-width: $screen-lg)
+{
+  body, .btn, .tooltip
+  {
+    font-size: $font-size-desktop;
+  }
+
+  h1{font-size: $font-size-desktop-h1;}
+  h2{font-size: $font-size-desktop-h2;}
+  h3{font-size: $font-size-desktop-h3;}
+  h4{font-size: $font-size-desktop-h4;}
+  h5{font-size: $font-size-desktop-h5;}
+  h6{font-size: $font-size-desktop-h6;}
+
+  body
+  {
+    margin-top: 50px;
+
+    @include largeHeader();
+    @include largeMarquee();
+    @include largeArrows($black, $white);
+
+    // WORKFLOW SLIDER ARROWS
+    @include workflowNavArrows(30px, $black, $workflow-color);
+
+    .rsDefault.rsHor .rsArrowLeft { left: -100px; }
+    .rsDefault.rsHor .rsArrowRight { right: -100px; }
+
+
+    // Wrapper for the tooltip content
+    .tooltip
+    {
+      &.top .tooltip-arrow {
+        margin-left: -$tooltip-arrow-width-desktop;
+        border-width: $tooltip-arrow-width-desktop $tooltip-arrow-width-desktop 0;
+      }
+
+      .tooltip-inner {
+        max-width: $tooltip-max-width-desktop;
+        padding: 15px;
+      }
+    }
+
+
+    #manifestos 
+    {
+      .manifestos-video
+      {
+        &.art-video
+        {
+          height: 370px;
+        }
+      }
+
+
+      #durability.tab-pane
+      {
+        .content-front
+        {
+          .black-diamond
+          {
+            width: 315px;
+            height: 294px;
+
+            .default
+            {
+              background-image: image-url("cta/black-diamond-desktop.png");
+            }
+
+            .hover
+            {
+              background-image: image-url("cta/black-diamond-hover-desktop.png");
+            }
+          }
+        }
+      }
+
+      #usability.tab-pane
+      {
+        .content-front
+        {
+          .zen-symbol
+          {
+            width: 258px;
+            height: 255px;
+            background-image: image-url("cta/zen-symbol-desktop.png");
+          }
+        }
+      }
+
+      #art.tab-pane
+      {
+        .content-front
+        {
+          .vitruvian
+          {
+            width: 258px;
+            height: 258px;
+            background-image: image-url("cta/vitruvian-desktop.png");
+          }
+        }
+      }
+
+      #marquee-wrapper
+      {
+        height: 170px;
+
+        #marquee
+        {
+          .marquee-headline h1
+          {
+            font-size: 1.6em;
+            margin-top: 2px;
+          }
+
+          .nav
+          {
+            font-size: 2.6em;
+          }
+        }
+      }
+    }
+
+    .window
+    {
+      padding-top: 170px;
+    }
+
+    footer
+    {
+      top: 900px;
+
+      #contact
+      {
+        input
+        {
+          padding: 12px 15px;
+        }
+
+        textarea
+        {
+          height: 360px;
+        }
+      }
+    }
+  }
+
+  section#features
+  {
+    .design-concept
+    {
+      top: 150px;
+      left: 190px;
+      
+      h2
+      {
+        top: 50px;
+        left: 20px;
+      }
+
+      .design-concept-group
+      {
+        h3
+        {
+          top: 40px;
+        }
+
+        .design-concept-ball
+        {
+          font-size: 0.7em;
+          width: 80px;
+          height: 80px;
+          @include circle(80px);
+        }
+      }
+    }
+
+    .nav-tabs
+    {
+      li
+      {
+        &.active
+        {
+          @include arrow(15px, 3px, $black, $features-color, bottom);
+        }
+      }
+    }
+
+    .socialmedia-icons
+    {
+      .socialmedia-icon
+      {
+        width: 48px;
+        height: 48px;
+        margin: 0 12px 12px 0;
+      }
+    }
+  }
+}

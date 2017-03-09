@@ -1,0 +1,90 @@
+/* variables */
+@import "constants";
+
+/* mixins */
+@import "mixins";
+
+.visible-manifestos-art
+{
+  display: none;
+}
+
+// STYLES FOR ART ONLY
+body.manifesto-art
+{
+  .visible-manifestos-art
+  {
+    display: block;
+  }
+
+  #manifestos
+  {
+    #marquee-wrapper
+    {
+      #marquee
+      {
+        .marquee-bg-art
+        {
+          opacity: 0.9;
+          @include gradientDiagonal($art-color, $art-color-dark);
+        }
+      }
+    }
+
+    .tab-content
+    {
+      .tab-pane#art
+      {
+        display: block;
+      }
+    }
+  }
+
+  .container
+  {
+    .inner-wrapper
+    {
+      #art.tab-pane
+      {
+        .arrow-forward
+        {
+          display: none;
+        }
+
+        .content-front
+        {
+          .vitruvian
+          {
+            position: relative;
+            margin-right: 20px;
+            float: right;
+            width: 200px;
+            height: 200px;
+            @include img-retina(image-url("cta/vitruvian-1x.png"), image-url("cta/vitruvian-2x.png"), 200px, 200px);
+          }
+        }
+
+        .content-summary
+        {
+          text-align: center;
+          padding-top: 40px;
+
+          quote
+          {
+            color: darken($art-color, 20);
+            font-size: 3em;
+            font-weight: 100;
+          }
+
+          .author
+          {
+            display: block;
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: 100;
+          }
+        }
+      }
+    }
+  }
+}

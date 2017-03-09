@@ -1,0 +1,38 @@
+@import "constants";
+@import "mixins";
+@import "bootstrap-variables";
+
+#workflow-slider
+{
+  height: 500px;
+}
+
+@media (min-width: $screen-lg)
+{
+  #workflow-slider
+  {
+    height: 800px;
+  }
+}
+
+// RSDEFAULT OVERWRITES
+
+/***************
+*
+*  1. Arrows
+*
+****************/
+
+.rsDefault.rsHor .rsArrowLeft { 
+  .rsArrowIcn
+  {
+    @include arrow(20px, 1, $black, $workflow-color, left);    
+  }
+}
+
+.rsDefault.rsHor .rsArrowRight { 
+  .rsArrowIcn
+  {
+    @include arrow(20px, 1, $black, $workflow-color, right);    
+  }
+}

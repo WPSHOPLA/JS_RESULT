@@ -1,0 +1,18 @@
+{% assign page_shorturl = page.title | replace:' ','-' | downcase %}
+
+<div id="mobilenav">
+  <i class="fa fa-bars"></i>
+
+  <nav>
+    <div class="mobilenav-item"><a href="/">Home</a></div>
+    <div class="mobilenav-item {% if page_shorturl == 'info' %} active{% endif %}"><a href="/info">Info</a></div>
+    <div class="mobilenav-subitems">
+      <div class="mobilenav-item"><a href="#matcha">The Concept</a></div>
+      <div class="mobilenav-item"><a href="#people">The People Behind</a></div>
+      <div class="mobilenav-item"><a href="#materials">Materials</a></div>
+      <div class="mobilenav-item"><a href="#shipping">Shipping</a></div>
+      <div class="mobilenav-item"><a href="#faqs">FAQ</a></div>
+    </div>
+    <div class="mobilenav-item"><a href="/blog">Blog</a></div>
+  </nav>
+</div>

@@ -1,0 +1,151 @@
+@import "constants";
+@import "mixins";
+
+// BOOTSTRAP SPECIFIC VARIABLES OVERRIDES
+// ===============================
+
+$bootstrap-sass-asset-helper: false;
+
+
+$grid-gutter-width: 30px !default;
+
+
+// Media queries breakpoints
+// --------------------------------------------------
+
+// Extra small screen / phone
+// Note: Deprecated $screen-xs and $screen-phone as of v3.0.1
+$screen-xs:                  480px !default;
+$screen-xs-min:              $screen-xs !default;
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+// Note: Deprecated $screen-sm and $screen-tablet as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+// Note: Deprecated $screen-md and $screen-desktop as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+// Note: Deprecated $screen-lg and $screen-lg-desktop as of v3.0.1
+$screen-lg:                  1450px !default;
+$screen-lg-min:              $screen-lg !default;
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+
+// Small screen / tablet
+$container-tablet:             ((700px + $grid-gutter-width)) !default;
+$container-sm:                 $container-tablet !default;
+
+// Medium screen / desktop
+$container-desktop:            ((700px + $grid-gutter-width)) !default;
+$container-md:                 $container-desktop !default;
+
+// Large screen / wide desktop
+$container-large-desktop:      ((1000px + $grid-gutter-width)) !default;
+$container-lg:                 $container-large-desktop !default;
+
+
+// TYPOGRAPHY
+// ===========
+
+$font-family-base: "ff-basic-gothic-web-pro-1", "ff-basic-gothic-web-pro-2";
+$text-color: $black;
+
+$brand-primary: $durability-color;
+
+$font-size-base:          15px !default;
+$font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
+$font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
+
+
+$font-size-desktop: ceil($font-size-base * 1.4);
+$font-size-tablet-portrait: ceil($font-size-base * 1.4);
+$font-size-tablet-landscape: $font-size-base;
+
+$font-size-phone-portrait: $font-size-base;
+
+
+$line-height-base:        1.428571429 !default; // 20/14
+$headings-line-height: $line-height-base;
+
+$font-size-h1: floor($font-size-base * 2) !default;
+$font-size-h2: floor($font-size-base * 1.6) !default;
+$font-size-h3: ceil($font-size-base * 1.2) !default;
+$font-size-h4: ceil($font-size-base * 1.1) !default;
+$font-size-h5: $font-size-base !default;
+$font-size-h6: ceil($font-size-base * 0.85) !default;
+
+// desktop H's
+$font-size-desktop-h1: floor($font-size-desktop * 2);
+$font-size-desktop-h2: floor($font-size-desktop * 1.6);
+$font-size-desktop-h3: ceil($font-size-desktop * 1.2);
+$font-size-desktop-h4: ceil($font-size-desktop * 1.1);
+$font-size-desktop-h5: $font-size-desktop;
+$font-size-desktop-h6: ceil($font-size-desktop * 0.85);
+
+// tablet portrait H's
+$font-size-tablet-portrait-h1: floor($font-size-tablet-portrait * 2);
+$font-size-tablet-portrait-h2: floor($font-size-tablet-portrait * 1.6);
+$font-size-tablet-portrait-h3: ceil($font-size-tablet-portrait * 1.2);
+$font-size-tablet-portrait-h4: ceil($font-size-tablet-portrait * 1.1);
+$font-size-tablet-portrait-h5: $font-size-tablet-portrait;
+$font-size-tablet-portrait-h6: ceil($font-size-tablet-portrait * 0.85);
+
+// tablet landscape H's
+$font-size-tablet-landscape-h1: floor($font-size-tablet-landscape * 2);
+$font-size-tablet-landscape-h2: floor($font-size-tablet-landscape * 1.6);
+$font-size-tablet-landscape-h3: ceil($font-size-tablet-landscape * 1.2);
+$font-size-tablet-landscape-h4: ceil($font-size-tablet-landscape * 1.1);
+$font-size-tablet-landscape-h5: $font-size-tablet-landscape;
+$font-size-tablet-landscape-h6: ceil($font-size-tablet-landscape * 0.85);
+
+// phone portrait H's
+$font-size-phone-portrait-h1: floor($font-size-phone-portrait * 2);
+$font-size-phone-portrait-h2: floor($font-size-phone-portrait * 1.6);
+$font-size-phone-portrait-h3: ceil($font-size-phone-portrait * 1.2);
+$font-size-phone-portrait-h4: ceil($font-size-phone-portrait * 1.1);
+$font-size-phone-portrait-h5: $font-size-phone-portrait;
+$font-size-phone-portrait-h6: ceil($font-size-phone-portrait * 0.85);
+
+
+
+// Links
+// -------------------------
+
+$link-color: darken($goldenbrown, 30%);
+$link-hover-color: darken($link-color, 20%);
+
+
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+$border-radius-small: 0;
+
+
+// buttons
+$btn-default-color: $black;
+$btn-default-bg: $brand-primary;
+
+$btn-primary-color: $black;
+$btn-primary-bg: $golden;
+
+
+// tooltip
+$tooltip-max-width: 300px;
+$tooltip-max-width-desktop: 400px;
+$tooltip-color: $black;
+$tooltip-bg: $gray6;
+
+$tooltip-arrow-width: 10px;
+$tooltip-arrow-width-desktop: 15px;

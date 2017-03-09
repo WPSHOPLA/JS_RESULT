@@ -1,0 +1,31 @@
+body.browser-ie
+{
+  header
+  {
+    .goldenchai-logo-wrapper
+    {
+      .goldenchai-logo
+      {
+        // padding: 9px 13px 5px;
+
+        .logo-copy
+        {
+          padding-top: 3px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+
+  &.footer-active
+  {
+    // blur/hide manifestos stuff
+    .window
+    {
+      .container, #marquee .nav, #marquee .marquee-headline
+      {
+        opacity: 0 !important;
+      }
+    }    
+  }
+}

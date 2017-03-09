@@ -1,0 +1,575 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+
+// local mixins
+@mixin footerNavActive($color)
+{
+  background: rgba($color, 0.5);
+}
+
+
+// styles start
+body
+{
+  &.site-single-page.footer-post-active, &.site-single-page.footer-active
+  {
+    footer
+    {
+      @include transition((background $fastTransitionSpeed, top $fastTransitionSpeed));
+    }
+  }
+
+  footer
+  {
+    position: fixed;
+    top: 680px;
+    width: 100%;
+    z-index: 10;
+    height: 40px; /* this needs to be low for the down arrow to work. Otherwise issues with z-index */
+
+    .container
+    {
+      height: inherit;
+    }
+
+    .footer-chai
+    {
+      padding-top: 10px;
+      padding-left: 25px;
+
+      img
+      {
+        cursor: pointer;
+        position: absolute;
+        margin-top: -12px;
+        left: 10px;
+        z-index: 99;
+        opacity: 0.8;
+
+        &:hover
+        {
+          opacity: 1;
+        }
+      }
+
+      .invert-mode, .copyright
+      {
+        opacity: 0;
+        position: absolute;
+
+        &.active
+        {
+          opacity: 1;
+          @include transition(opacity $defaultTransitionSpeed);
+        }
+      }
+    }
+
+    section#footer-content
+    {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    hr
+    {
+      border-top: 1px solid $gray40;
+      margin: 0;
+    }
+
+    .footer-nav
+    {
+      position: relative;
+
+      .collapseFooter
+      {
+        display: none;
+        position: absolute;
+        top: -50px;
+        right: 15px;
+        opacity: 0.5;
+        cursor: pointer;
+        text-align: right;
+        float: right;
+      }
+    }
+
+    .footer-nav-cta
+    {
+      display: inline-block;
+      position: relative;
+      padding: 10px;
+      margin: 0 0 0 15px;
+      text-transform: uppercase;
+      @include transition(opacity $defaultTransitionSpeed);
+
+      a
+      {
+        color: $black;
+      }
+
+      &.footer-nav-info
+      {
+        margin-left: 0;
+      }
+
+      &.active
+      {
+        padding-top: 0;
+
+        &:before
+        {
+          position: relative;
+          left: 50%;
+          margin-left: -6px;
+          @include triangle(6px, $gray70, top);
+        }
+      }
+
+      .cta-helper
+      {
+        color: $gray70;
+        opacity: 0;
+        position: absolute;
+        left: 50%;
+        margin-left: -60px;
+        width: 120px;
+        padding: 5px;
+        text-align: center;
+        font-size: 11px;
+        background: $gray20;
+        @include transition(opacity $slowTransitionSpeed);
+
+        .cta-helper-arrow
+        {
+          position: absolute;
+          bottom: -10px;
+          margin-left: -10px;
+          left: 50%;
+          width:0;
+          height:0;
+          border-color:transparent;
+          border-style:solid;
+          border-top-color: $gray20;
+          border-width:10px 10px 0;
+        }
+      }
+    }
+
+    #contact
+    {
+      .contact-info
+      {
+        p
+        {
+          font-size: 1.3em;
+        }
+      }
+
+      small
+      {
+        display: block;
+        margin-top: 12px;
+      }
+
+      input#email
+      {
+        margin-top: 8px;
+      }
+
+      input, textarea
+      {
+        display: block;
+        width: 100%;
+        border: none;
+        outline: 0;
+        background: rgba($white, 0.8);
+        padding: 8px 15px;
+        font-size: 1.6em;
+        margin-bottom: 20px;
+
+        &:hover, &:focus, &:active
+        {
+          border: none !important;
+          outline: none !important;
+          text-decoration: none !important;
+        }
+      }
+
+      textarea
+      {
+        height: 160px;
+      }
+    }
+  }
+}
+
+body.page-manifestos
+{
+  footer
+  {
+    #contact
+    {
+      input, textarea
+      {
+        background: rgba($gray20, 0.2);
+      }
+    }
+  }
+}
+
+#footer-kicker
+{
+  background: transparent;
+  opacity: 0;
+  position: fixed;
+  bottom: 0;
+  margin-right: 15px;
+  text-align: center;
+  width: 100%;
+  z-index: -1;
+
+  h4
+  {
+    background: rgba($gray20, 0.2);
+    padding: 15px;
+    margin-top: 30px;
+  }
+}
+
+
+// ADD SPECIFIC BLUR TRANSITION EFFECT ON TARGET ELEMENTS
+body.desktop
+{
+  #manifestos
+  {
+    .container
+    {
+      @include transition((-webkit-filter $defaultTransitionSpeed, filter $defaultTransitionSpeed))
+    }
+
+    #marquee-wrapper
+    {
+      #marquee
+      {
+        .marquee-headline, .nav
+        {
+          @include transition((-webkit-filter $defaultTransitionSpeed, filter $defaultTransitionSpeed))
+        }
+      }
+    }
+  }
+}
+
+
+
+// FOOTER ACTIVE STATE
+body.footer-active
+{
+  margin-top: 0;
+  
+  header
+  {
+    .goldenchai-logo-wrapper
+    {
+      opacity: 0.4;
+    }
+
+    #primary-nav
+    {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  #manifestos
+  {
+    .manifestos-video
+    {
+      video
+      {
+        opacity: 0.1 !important;
+      }
+    }
+  }
+
+  footer
+  {
+    hr
+    {
+      border-top-color: $gray70;
+    }
+
+    .collapseFooter
+    {
+      display: block;
+    }
+
+    .footer-nav-cta
+    {
+      font-size: 1.4em;
+      opacity: 0.6;
+
+      &.active
+      {
+        opacity: 1;
+      }
+    }
+
+    #footer-content
+    {
+      pointer-events: auto;
+      margin-top: 10px;
+    }
+  }
+}
+
+@media (min-width: $screen-sm)
+{
+  body.footer-active
+  {
+    header
+    {
+      padding-top: 80px;
+      
+      .goldenchai-logo-wrapper
+      {
+        bottom: 20px;
+      }
+    }
+
+    // blur/hide manifestos stuff
+    .window
+    {
+      .container, #marquee .nav, #marquee .marquee-headline
+      {
+        @include blur(10px);
+        @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.
+      }
+
+      .black-diamond, .zen-symbol, .vitruvian 
+      {
+        opacity: 0.3 !important;
+      }
+    }
+
+    // blur/hide workflow stuff
+    #workflow
+    {
+      #workflow-slider
+      {
+        @include blur(10px);
+        @include blurPerformanceHack(); // hack to speed up performance of blur. Don't know why it works, but an article gave this suggestion with good test results.      
+
+        .rsOverflow
+        {
+          opacity: 0.7;
+
+          .rsContent
+          {
+            background: none;
+          }
+        }
+      }
+    }
+
+    #marquee
+    {
+      .marquee-bg
+      {
+        opacity: 0 !important;
+      }
+
+      .marquee-shadow
+      {
+        visibility: hidden;
+      }
+    }
+
+    footer
+    {
+      top: 80px;
+
+      .footer-nav-cta.active
+      {
+        .cta-helper
+        {
+          top: -50px;
+        }
+
+        &:hover
+        {
+          .cta-helper
+          {
+            opacity: 1 !important;
+            @include transition(opacity $slowTransitionSpeed ease 1s);
+          }          
+        }
+
+        &.showHelperText
+        {
+          .cta-helper
+          {
+            opacity: 1 !important;
+            @include transition(opacity ($slowTransitionSpeed*2) ease 0.5s);
+          }
+        }
+      }
+
+      .footer-chai
+      {
+        opacity: 0;
+      }
+    
+      section#footer-content
+      {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+// FOOTER MOBILE STUFF
+// ****************************
+
+@media (max-width: $screen-sm)
+{
+  body
+  {
+    footer
+    {
+      opacity: 0;
+      position: fixed;
+
+      .footer-chai
+      {
+        font-size: 0.8em;
+      }
+
+      .cta-helper
+      {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $screen-sm)
+{
+  body.footer-active
+  {
+    padding-top: 130px;
+
+    header
+    {
+      padding-top: 50px !important;
+      padding-bottom: 20px;
+      top: 0;
+      @include transition(padding-top ($defaultTransitionSpeed) ease);
+
+      #primary-nav
+      {
+        opacity: 0 !important;
+        @include transition(opacity ($defaultTransitionSpeed) ease);
+      }
+
+      #mobile-nav-icon
+      {
+        opacity: 0.4 !important;
+      }
+    }
+
+    #skrollr-body
+    {
+      display: none !important;
+    }
+
+    footer
+    {
+      position: static;
+      opacity: 1 !important;
+      z-index: 999 !important;
+      @include transition(top $fastTransitionSpeed);
+
+      .footer-nav
+      {
+        position: fixed;
+        width: 100%;
+        left: 0;
+        top: 70px;
+        z-index: 9999;
+        height: 80px;
+
+        .footer-chai
+        {
+          opacity: 0 !important;
+        }
+
+        .collapseFooter
+        {
+          display: none;
+        }
+      }
+
+      section#footer-content
+      {
+        opacity: 1;
+        margin-top: 0;
+        @include transition(opacity ($defaultTransitionSpeed) ease);
+      }
+    }
+
+    #footer-kicker
+    {
+      display: none;
+    }
+  }
+}
+
+
+@media (max-width: $screen-xs)
+{
+  body.footer-active
+  {
+    footer
+    {
+      height: auto;
+
+      .footer-nav-cta
+      {
+        font-size: 1em;
+        opacity: 1;
+      }
+
+
+      #contact
+      {
+        .contact-info
+        {
+          margin: 0 0 30px;
+        }
+
+        textarea, input
+        {
+          font-size: 1.2em;
+          margin-bottom: 10px;
+        }
+
+        textarea
+        {
+          height: 110px;
+        }
+      }
+    }
+  }
+}

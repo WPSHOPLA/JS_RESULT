@@ -1,0 +1,13 @@
+---
+layout: blog
+title: Blog
+class: blog
+---
+
+<div class="summer-content">
+  {% for post in paginator.posts %}
+    {% include blog/post-listing.html %}
+  {% endfor %}
+
+  {% include paginator.html %}
+</div>

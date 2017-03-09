@@ -1,0 +1,39 @@
+<footer>
+    <div class="row">
+    <div class="col-xs-3">
+<address>
+  <strong>&copy; MATCHASOFA INC</strong><br>
+  Designed in Vancouver, Canada<br><br>
+</address>
+
+<h5><strong>instant response</strong></h5>
+<a href="mailto:support@matchasofa.com">support@matchasofa.com</a><br>
+1-800-420-4200
+
+{% include 'social' %}
+
+    </div>
+    <div class="col-xs-3">
+      <nav>
+        <a href="#">About</a>
+        <a href="#">FAQs</a>
+        <a href="#">Return policy</a>
+        <a href="#">Shipping</a>
+        <a href="#">Terms/privacy</a>
+        <a href="#">Blog</a>
+      </nav>
+    </div>
+    <div class="col-xs-2">
+      <ul class="credit-cards p10 clearfix">
+        {% if settings.accept_visa %}<li><img src="{{ 'icon-cc-visa.png' | asset_url }}" alt="Visa" /></li>{% endif %}
+        {% if settings.accept_mastercard %}<li><img src="{{ 'icon-cc-mastercard.png' | asset_url }}" alt="MasterCard" /></li>{% endif %}
+        {% if settings.accept_amex %}<li><img src="{{ 'icon-cc-amex.png' | asset_url }}" alt="Amex" /></li>{% endif %}
+        {% if settings.accept_discover %}<li><img src="{{ 'icon-cc-discover.png' | asset_url }}" alt="Discover" /></li>{% endif %}
+        {% if settings.accept_paypal %}<li><img src="{{ 'icon-cc-paypal.png' | asset_url }}" alt="PayPal" /></li>{% endif %}
+        {% if settings.accept_google %}<li><img src="{{ 'icon-cc-google.png' | asset_url }}" alt="Google Wallet" /></li>{% endif %}
+        {% if settings.accept_bitcoin %}<li><img src="{{ 'icon-cc-bitcoin.png' | asset_url }}" alt="Bitcoin" /></li>{% endif %}
+
+      </ul> <!-- /.credit-cards -->
+    </div>
+  </div>
+</footer>

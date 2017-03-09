@@ -1,0 +1,98 @@
+@import 'constants';
+@import 'bootstrap-variables';
+
+// IMPORT BOOTSTRAP LIBRARY
+// =====================
+
+@import "lib/bootstrap-3.0.3/bootstrap";
+
+
+
+// BOOTSTRAP STYLE OVERRIDES
+// =====================
+
+h1, h2, h3, h4, h5, h6
+{
+  font-weight: 400;
+}
+
+// tooltip
+.tooltip
+{
+  font-size: $font-size-base;
+  line-height: 1.4;
+
+  &.in { @include opacity(1); }
+
+  // Wrapper for the tooltip content
+  .tooltip-inner {
+    padding: 10px;
+    color: $tooltip-color;
+  }
+}
+
+[data-toggle="tooltip"]
+{
+  cursor: help;
+}
+
+
+/* typography */
+a, a:active, a:focus, a:visited, a:hover
+{
+  background-color: none;
+  border: none;
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+.lead
+{
+  font-size: 1.2em;
+}
+
+.nav
+{
+  > li
+  {
+    >a, >a:hover, >a:focus
+    {
+      background-color: transparent !important;
+    }
+  }
+}
+
+
+/* buttons */
+
+.btn
+{
+  text-transform: uppercase;
+  border: 0;
+  background-color: rgba($btn-default-bg, 0.1);
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  font-weight: 400;
+  color: $btn-default-color;
+
+  &:hover
+  {
+    background-color: rgba($btn-default-bg, 0.2);
+  }
+
+  &.btn-primary
+  {
+    background-color: rgba($btn-primary-bg, 0.7);
+
+    &:hover
+    {
+      background-color: rgba($btn-primary-bg, 1);
+    }
+  }
+
+  &.btn-lg
+  {
+    padding: 0 25px;
+    line-height: 3; /* this is necessary for progress-button. No top padding should be added. */
+  }
+}

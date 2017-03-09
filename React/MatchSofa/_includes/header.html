@@ -1,0 +1,17 @@
+<header {% if page.class == "index" %}class="header-short"{% endif %}>
+  <nav>
+    <div class="logo"><a href="/"><img src="{{ 'placeholders/logo-white.png' | asset_path }}"></a></div>
+    <ul>
+      <li id="nav-features" class="{% if page.class == 'features' %}active{% endif %}"><a href="/features">FEATURES</a></li>
+      <li id="nav-info" class="{% if page.class == 'info' %}active{% endif %}"><a href="/info">INFO</a></li>
+      <li id="nav-blog" class="{% if page.class == 'blog' %}active{% endif %}"><a href="/blog">BLOG</a></li>
+      <li><a href="/info">{% unless page.class == "index" %}<div id="clock"></div>{% endunless %}</a></li>
+    </ul>
+    {% if page.class != "404" %}
+      {% include search.html %}
+    {% endif %}
+
+    {% include mobilenav.html %}
+  </nav>
+  <!-- {% include socialmedia/social.html %} -->
+</header>

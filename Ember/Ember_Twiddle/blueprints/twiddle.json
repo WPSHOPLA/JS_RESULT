@@ -1,0 +1,18 @@
+{
+  "version": "0.10.6",
+  "EmberENV": {
+    "FEATURES": {}
+  },
+  "options": {
+    "use_pods": false,
+    "enable-testing": false
+  },
+  "dependencies": {
+    "jquery": "https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.js",
+    "ember": "2.9.0",
+    "ember-data": "2.9.0",
+    "ember-template-compiler": "2.9.0",
+    "ember-testing": "2.9.0"
+  },
+  "addons": {}
+}

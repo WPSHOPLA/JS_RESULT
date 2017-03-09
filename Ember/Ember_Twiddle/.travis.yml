@@ -1,0 +1,27 @@
+language: node_js
+node_js:
+- '4'
+notifications:
+  email: false
+sudo: false
+cache:
+  directories:
+  - node_modules
+before_install:
+- npm config set spin false
+- npm install -g bower
+- bower --version
+- npm install phantomjs-prebuilt
+- phantomjs --version
+install:
+- npm install
+- bower install
+script:
+- npm test
+after_script:
+- scripts/travis-deploy.sh
+env:
+  global:
+  - secure: Dwthqo6GaXQt7erj89xMa/2GRua9PTzcSKXYmxjE0O46DMuBR80JjPges0hGCWwPcdMFqsaMshSaTVF5eHc49vhaziB2sqWwLZndkRFIAsNGnBZkBpeZc9MsTNMbPP5KyJh/pG03nJLXUSz6xzMoxDNU/QHWyBYBxTlfxVGewLE=
+  - secure: H3EtrTdcXIDOjp59Mu/7KA7N2UrVgKjt2YVtW6dqby/Oa5q/jpfnomE70fhIpFTle6MavhAIujQ5awMRC/80EJXlZp5hnSd9DKyCpk70I1KoT6vm34RjZfSP9kAyRyokLwfjEkovCFltY3/i8y+8QFEVr8RkNt1VP2hY1ScFzys=
+  - secure: BM5IGMNaE+xS16wsReX6KjA4Zg9nKhWrPuc7AZAmgEevCiQT6mgSfyhyoPoRS/M5UVdngqCSHFljfUHigR9/C8lPOY7fS6RU4wyNnZlQJL6y3D3LMWvzw8u/Rc98rmoWqNA2XEmc4a95A8iRNATWQAd3qL0FxfNcv6ny99MOER4=

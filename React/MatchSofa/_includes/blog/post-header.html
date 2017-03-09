@@ -1,0 +1,4 @@
+<div class="summer-post-title">
+  <h1>{{ page.title }}</h1>
+  <p>{% if page.author %}by <strong>{{ page.author }}</strong> on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%d %b %Y" }}</time> &#8212; {% endif %} {% assign categorysize = page.categories.size %}{% if categorysize != 0 %}in {% for category in page.categories %}<a href="/blog/{{ category | cgi_encode }}/" data-toggle="tooltip" title="Posts in {{ category }}" rel="category">{{ category }}</a>{% unless forloop.last %}&comma;&nbsp;{% endunless %}{% endfor %}{% endif %}{% assign tagsize = page.tags.size %}{% if tagsize != 0 %} about {% for tag in page.tags %}<a href="/blog/tags/{{ tag | cgi_encode }}/" data-toggle="tooltip" title="Posts tagged with {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}&comma;&nbsp;{% endunless %}{% endfor %}{% endif %}</p>
+</div>

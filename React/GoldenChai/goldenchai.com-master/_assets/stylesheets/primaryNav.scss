@@ -1,0 +1,123 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+
+
+/* header */
+body
+{
+  header
+  {
+    #primary-nav
+    {
+      position: absolute;
+      bottom: 0;
+      right: 15px;
+      width: 135px;
+      @include disableHighlighting;
+
+
+      .primary-nav-item
+      {
+        text-align: right;
+        height: 25px;
+        margin: 5px 0 0;
+        z-index: 999;
+        @include disableHighlighting;
+
+        &:nth-child(1)
+        {
+          margin: 0;
+        }
+
+        .nav-title
+        {
+          display: inline-block;
+          height: inherit;
+          line-height: 25px;
+          padding-left: 10px;
+          font-size: 0.9em;
+          text-transform: uppercase;
+          @include disableHighlighting;
+          
+          a
+          {
+            color: $black;
+          }
+        }
+
+        .nav-icon
+        {
+          float: right;
+          width: 30px;
+          height: inherit;
+          margin-left: 10px;
+          background: image-url("nav/nav-double-arrow.png") center center no-repeat;
+
+        }
+
+        &.primary-nav-manifestos
+        {
+          .nav-icon
+          {
+            background-color: $manifestos-nav-color;
+          }
+        }
+
+        &.primary-nav-workflow
+        {
+          .nav-icon
+          {
+            background-color: $workflow-nav-color;
+          }
+        }
+
+        &.primary-nav-features
+        {
+          .nav-icon
+          {
+            background-color: $features-nav-color;
+          }
+        }
+      }
+    }
+  }
+
+  &.page-manifestos
+  {
+    header #primary-nav .primary-nav-manifestos
+    {
+      @include activeNavBg();
+    }
+  }
+
+  &.page-workflow
+  {
+    header #primary-nav .primary-nav-workflow
+    {
+      @include activeNavBg();
+    }
+  }
+
+  &.page-features
+  {
+    header #primary-nav .primary-nav-features
+    {
+      @include activeNavBg();
+    }
+  }
+}
+
+
+@media (max-width: $screen-sm-max) {
+  body
+  {
+    header
+    {
+      #primary-nav
+      {
+        right: 15px;
+      }
+    }    
+  }
+}

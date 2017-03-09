@@ -1,0 +1,57 @@
+@import 'shared/constants';
+@import 'shared/mixins';
+
+.page-features
+{
+  .bg-video
+  {
+    line-height: 0;
+
+    video
+    {
+      width: 100%;
+    }
+  }
+
+  // opacity
+  header >nav,
+  .nav-tabs .active a,
+  .nav-tabs .active a:hover,
+  .tab-content
+  {
+    background-color: rgba(black, 0.8);
+  }
+
+  // active arrow opacity
+  header >nav ul li
+  {
+    &.active
+    {
+      &:after
+      {
+        @include triangle(10px, rgba(black, 0.8), top);
+      }
+    }
+  }
+
+
+  // main
+  main
+  {
+    position: absolute;
+    top: 0;
+    background: transparent;
+
+    .nav-tabs .active a,
+    .tab-content
+    {
+      color: white;
+    }
+
+    .nav-tabs,
+    .nav-tabs .active a
+    {
+      border: 0;
+    }
+  }
+}

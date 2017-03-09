@@ -1,0 +1,73 @@
+<div id="collection">
+
+  {% paginate collection.products by settings.pagination_limit %}
+  <!-- Begin collection info -->
+  <div class="row">
+    <div class="span12">
+
+      <!-- Begin breadcrumb -->
+      <div class="breadcrumb clearfix">
+        <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="url"><span itemprop="title">Home</span></a></span>
+        <span class="arrow-space">&#62;</span>
+        <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ collection.url }}" title="{{ collection.title | escape }}" itemprop="url"><span itemprop="title">{{ collection.title }}</span></a></span>
+
+        {% if current_tags %}
+          {% for tag in current_tags %}
+            <span class="arrow-space">&#62;</span>
+            <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/collections/{% if collection.handle != blank %}{{ collection.handle }}{% else %}all{% endif %}/{{ tag | handleize }}" title="{{ tag | escape }}" itemprop="url"><span itemprop="title">{{ tag }}</span></a></span>
+          {% endfor %}
+        {% endif %}
+
+        {% if paginate.pages != 0 %}
+          <span class="arrow-space">&#62;</span> <strong>Page {{ paginate.current_page }} of {{ paginate.pages }}</strong>
+        {% endif %}
+      </div>
+      <!-- End breadcrumb -->
+
+      <!-- Begin sort collection -->
+      <div class="clearfix">
+        <h1 class="collection-title">{{ collection.title }}</h1>
+        {% if settings.collection_tags %}
+          {% capture col_url%}{% if collection.url.size == 0 %}/collections/all{%else%}{{collection.url}}{%endif%}{%endcapture%}
+          {% if collection.all_tags.size > 0 %}
+          <div class="browse-tags">
+          	<label>Browse:</label>
+          	<select name="collection_tags" id="collection_tags" class="loc_on_change">
+          		<option value="{{ col_url }}">All items</option>
+          		{% for tag in collection.all_tags %}
+          			<option value="{{col_url}}/{{ tag | handle }}"{% if current_tags contains tag %} selected="selected"{%endif%}>{{ tag }}</option>
+          		{% endfor %}
+          	</select>
+          </div>
+          {% endif %}
+        {% endif %}
+      </div>
+      <!-- End sort collection -->
+
+      <!-- Begin collection description -->
+      {% if collection.description != "" %}
+        {{ collection.description }}
+      {% endif %}
+      <!-- End collection description -->
+
+    </div>
+  </div>
+  <!-- End collection info -->
+
+  {% if collection.products.size == 0 %}
+
+    {% include 'helper-default-products' %}
+
+  {% endif %}
+
+  <div class="row products">
+    {% for product in collection.products limit: settings.pagination_limit %}
+      {% include 'product-loop' with collection.handle %}
+    {% endfor %}
+  </div>
+
+  {% include 'pagination' %}
+
+  {% endpaginate %}
+
+</div>

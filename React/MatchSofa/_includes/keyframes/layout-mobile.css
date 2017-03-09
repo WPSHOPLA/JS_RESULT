@@ -1,0 +1,84 @@
+.page-index .sidebar-cta-unit,
+.page-index .sidebar-cta-video
+{
+  -skrollr-animation-name: sidebarCtas;
+}
+
+@-skrollr-keyframes sidebarCtas{
+  0 {
+    right: 0px;
+  }
+
+  40 {
+    right: -50px;
+  }
+
+  100 {
+    right: -550px;
+  }
+}
+
+
+
+
+.page-index .section-modular .unit-top
+{
+  -skrollr-animation-name: unit-top;
+}
+
+@-skrollr-keyframes unit-top{
+  bottom-bottom {
+    top: -150px;
+  }
+
+  top-top {
+    top: -50px;
+  }
+}
+
+.page-index .section-modular .unit-bottom
+{
+  -skrollr-animation-name: unit-bottom;
+}
+
+@-skrollr-keyframes unit-bottom{
+  bottom-bottom {
+    top: 350px;
+  }
+
+  top-top {
+    top: 268px;
+  }
+}
+
+
+.page-index .section-table
+{
+  -skrollr-animation-name: table;
+}
+
+@-skrollr-keyframes table{
+  bottom-top {
+    background-position: 0px 0px;
+  }
+
+  top-bottom {
+    background-position: 200px 0px;
+  }
+}
+
+
+.page-index .section-fabric
+{
+  -skrollr-animation-name: fabrics;
+}
+
+@-skrollr-keyframes fabrics{
+  bottom-top {
+    background-position: 0px 0px;
+  }
+
+  top-bottom {
+    background-position: 100px 100px;
+  }
+}

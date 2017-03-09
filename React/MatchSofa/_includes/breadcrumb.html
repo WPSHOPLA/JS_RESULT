@@ -1,0 +1,13 @@
+<ol class="breadcrumbs">
+
+  {% for p in page.ancestors %}
+    {% unless p.title == "Blog" and page.title == "Blog" %}
+      {% if p.title %}
+        <li><a href="{{ p.url }}">{{ p.title }}</a></li>
+        <li class="divider">&gt;</li>
+      {% endif %}
+    {% endunless %}
+  {% endfor %}
+
+  <li class="active">{{ page.title }}</li>
+</ol>

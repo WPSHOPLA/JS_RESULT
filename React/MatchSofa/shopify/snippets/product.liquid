@@ -1,0 +1,193 @@
+<div id="product" class="{{ product.handle }}">
+  
+  <div class="row clearfix">
+    
+    {% if template != 'index' %}
+    <!-- Begin breadcrumb -->
+    <div class="span12">
+      <div class="breadcrumb clearfix">
+        <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{{ shop.url }}" title="{{ shop.name | escape }}" itemprop="url"><span itemprop="title">Home</span></a></span> 
+        <span class="arrow-space">&#62;</span>
+        <span itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+          {% if collection %}
+            <a href="{{ collection.url }}" title="{{ collection.title | escape }}">{{ collection.title }}</a>
+          {% else %}
+            <a href="/collections/all" title="All Products">Products</a>
+          {% endif %}
+        </span>
+        <span class="arrow-space">&#62;</span>
+        <strong>{{ product.title }}</strong>
+      </div>
+    </div>
+    <!-- End breadcrumb -->
+    {% endif %}
+    
+    <!-- Begin product photos -->
+    <div class="span6">
+      
+      <!-- Begin featured image -->
+      <div class="image featured">
+        {% if settings.enable_product_image_zoom %}
+        <a href="{{ product.featured_image | product_img_url: 'original' }}" class="cloud-zoom" rel="position: 'inside', showTitle: 'false'" id="placeholder">
+          <img src="{{ product.featured_image | product_img_url: 'original' }}" alt="{{ product.featured_image.alt | escape }}" />
+        </a>
+        {% else %}
+        <a href="{{ product.featured_image | product_img_url: 'original' }}" class="zoom" id="placeholder">
+          <img src="{{ product.featured_image | product_img_url: 'original' }}" alt="{{ product.featured_image.alt | escape }}" />
+        </a>
+        {% endif %}
+      </div>
+      <!-- End product image -->
+      
+      {% if product.images.size > 1%}
+      <!-- Begin thumbnails -->
+      <div class="thumbs clearfix" style="margin-left:-15px;">
+        {% for image in product.images %}
+        {% if settings.enable_product_image_zoom %}
+        <div class="image span2{% cycle 'last-in-row': '', '', ' last-in-row' %}">
+          <a href="{{ image | product_img_url: 'original' }}" class="cloud-zoom-gallery" rel="useZoom: 'placeholder', smallImage: '{{ image | product_img_url: 'original' }}', tint: '#ffffff'">
+            <img src="{{ image | product_img_url: 'medium' }}" alt="{{ image.alt | escape }}" />
+          </a>
+        </div>
+        {% else %}
+        <div class="image span2{% cycle 'last-in-row': '', '', ' last-in-row' %}">
+          <a href="{{ image | product_img_url: 'original' }}" data-original-image="{{ image | product_img_url: 'original' }}">
+            <img src="{{ image | product_img_url: 'medium' }}" alt="{{ image.alt | escape }}" />
+          </a>
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+      <!-- End thumbnails -->
+      <style>
+      .thumbs .image { margin: 15px 0 }
+      .thumbs .image { padding: 0 15px }
+      .thumbs .last-in-row { padding-right: 0 }
+      </style>
+      {% endif %}
+      
+    </div>
+    <!-- End product photos -->
+ 
+    
+    
+    <!-- Begin description -->
+    <div class="span6">
+      
+      <h1 class="title">{{ product.title }}</h1>
+      
+      <div class="purchase">
+        <h2 class="price" id="price-preview">{{ product.price_min | money }}{% if product.price_min < product.compare_at_price_min %} <del>{{ product.compare_at_price_min | money }}</del>{% endif %}</h2>
+      </div>
+      
+      {% assign hide_default_title = false %}
+      {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+        {% assign hide_default_title = true %}
+      {% endif %}
+            
+      <form id="add-item-form" action="/cart/add" method="post" class="variants clearfix">
+        
+        <!-- Begin product options -->
+        <div class="product-options {% if hide_default_title %}no-options {% endif %}">
+
+          <div class="select clearfix"{% if hide_default_title %} style="display:none"{% endif %}>
+            <select id="product-select" name="id">
+              {% for variant in product.variants %}
+              <option value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          {% if settings.display_quantity_dropdown %}
+          <div class="selector-wrapper">
+            <label>Quantity</label>
+            <input id="quantity" type="number" name="quantity" value="1" class="tc item-quantity" />
+          </div>
+          {% endif %}
+
+          <div class="purchase-section{% if product.variants.size > 1 %} multiple{% endif %}">
+            <div class="purchase">
+              {% unless product.available %}
+              <p>Sold Out</p>
+              {% else %}
+              <input type="submit" id="add-to-cart" class="btn addtocart" name="add" value="Add to cart" />
+              <div id="cart-animation" style="display:none">1</div>
+              {% endunless %}
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+        <!-- End product options -->
+
+      </form>
+
+      <div class="description">
+        {{ product.description }}
+      </div>
+
+      <!-- Begin social buttons -->
+      <div class="social">
+        {% include 'like' %}
+      </div>
+      <!-- End social buttons -->
+	  
+    </div>
+    <!-- End description -->
+	<div class="span12"><div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div></div>
+  </div>
+
+  <!-- Begin related product -->
+  {% if settings.show_related_products %}
+    {% include 'related-products' %}
+  {% endif %}
+  
+</div> 
+
+<div style="display:none" id="preloading">
+{% for image in product.images offset: 1 %}
+{{ image | product_img_url: 'original' | img_tag }}
+{% endfor %}
+</div>
+  
+  <script>
+  var selectCallback = function(variant, selector) {
+    if (variant && variant.available) {
+      jQuery('#add-to-cart').removeAttr('disabled').removeClass('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
+      if(variant.price < variant.compare_at_price){
+        jQuery('#price-preview').html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}") + " <del>" + Shopify.formatMoney(variant.compare_at_price, "{{ shop.money_format }}") + "</del>");
+      } else {
+        jQuery('#price-preview').html(Shopify.formatMoney(variant.price, "{{ shop.money_format }}"));
+      }
+    } else {
+      jQuery('#add-to-cart').addClass('disabled').attr('disabled', 'disabled'); // set add-to-cart button to unavailable class and disable button
+      var message = variant ? "Sold Out" : "Unavailable";
+      jQuery('#price-preview').text(message);
+    }
+  };
+  
+  jQuery(document).ready(function($){
+    new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });
+
+    // Add label if only one product option and it isn't 'Title'.
+    {% if product.options.size == 1 and product.options.first != 'Title' %}
+      $('.selector-wrapper:eq(0)').prepend('<label>{{ product.options.first }}</label>');
+    {% endif %}
+  
+    // Auto-select first available variant on page load.
+    {% assign found_one_in_stock = false %}
+    {% for variant in product.variants %}
+      {% if variant.available and found_one_in_stock == false %}
+        {% assign found_one_in_stock = true %}
+        {% for option in product.options %}
+        $('.single-option-selector:eq({{ forloop.index0 }})').val({{ variant.options[forloop.index0] | json }}).trigger('change');
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+
+  });
+  </script>

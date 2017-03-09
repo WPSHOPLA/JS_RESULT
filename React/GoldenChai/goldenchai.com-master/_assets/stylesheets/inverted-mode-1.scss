@@ -1,0 +1,379 @@
+@import "constants";
+@import "mixins";
+@import 'bootstrap-variables';
+@import 'lib/bootstrap-3.0.3/_mixins';
+
+.visible-inverted-mode-1
+{
+  display: none;
+}
+
+
+body.inverted-mode-1.site-single-page
+{
+  .visible-normal-mode
+  {
+    display: none !important;
+  }
+
+  .visible-inverted-mode-1
+  {
+    display: block;
+  }
+
+  &.manifesto-durability
+  {
+    .visible-inverted-mode-1-durability
+    {
+      opacity: 1;
+    }
+  }
+
+  &.manifesto-usability
+  {
+    .visible-inverted-mode-1-usability
+    {
+      opacity: 1;
+    }
+  }
+
+  &.manifesto-art
+  {
+    .visible-inverted-mode-1-art
+    {
+      opacity: 1;
+    }
+  }
+
+
+  background-color: $manifestos-color-inverted-mode-1;
+  color: $white;
+
+  // tooltip
+  .tooltip {
+    .tooltip-arrow
+    {
+      border-top-color: $gray80;
+    }
+
+    .tooltip-inner
+    {
+      color: $white;
+      background-color: $gray80;
+    }
+
+  }
+
+
+  a
+  {
+    color: $goldenbrown;
+
+    &:hover
+    {
+      color: lighten($goldenbrown, 20%);
+    }
+
+    &.btn
+    {
+      color: $white;
+      background-color: rgba($black, 0.2);
+
+      &:hover
+      {
+        background-color: rgba($black, 0.3);
+        color: $white;
+      }
+
+      &.btn-primary
+      {
+        color: $black;
+        background-color: rgba($btn-primary-bg, 0.7);
+
+        &:hover
+        {
+          color: $black;
+          background-color: rgba($btn-primary-bg, 1);
+        }
+      }
+    }
+  }
+
+  header
+  {
+    #primary-nav
+    {
+      .primary-nav-item
+      {
+        opacity: 0.8;
+
+        .nav-title
+        {          
+          a
+          {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+
+  // WORKFLOW SLIDER ARROWS
+  @include workflowNavArrows(20px, $white, $workflow-color-inverted-mode-1);
+
+
+  &.footer-active
+  {
+    hr
+    {
+      border-top-color: $white;
+    }
+
+    // blur/hide workflow stuff
+    #workflow
+    {
+      .royalSlider
+      {
+        .rsOverflow
+        {
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+
+  footer
+  {
+    .footer-nav-cta
+    {
+      &.active
+      {
+        &:before
+        {
+          @include triangle(6px, $white, top);
+        }
+      }
+
+      a
+      {
+        color: $white;
+      }
+    }
+  }
+
+  #manifestos
+  {
+    background: $manifestos-color-inverted-mode-1;
+
+    .arrow-down
+    {
+      @include arrow(14px, 1px, $white, $black, top);
+    }
+
+    .manifestos-video
+    {
+      .video-fader
+      {
+        @include gradient-vertical(rgba($black, 0), rgba($black, 1), 0%, 15%);
+      }
+    }
+
+    .container
+    {
+      .inner-wrapper
+      {
+        .main-content
+        {
+          .tab-content
+          {
+            .arrows
+            {
+              .arrow-forward
+              {
+                @include arrow(20px, 1, $white, $black, right);
+              }
+
+              .arrow-backward
+              {
+                @include arrow(20px, 1, $white, $black, left);
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+    /* marquee */
+    #marquee-wrapper
+    {
+      #marquee
+      {
+        .marquee-shadow
+        {
+          opacity: 0.5;
+        }
+
+        .marquee-bg
+        {
+          opacity: 0.8;          
+        }
+        
+        .nav
+        {
+          > li {
+            &.active
+            {
+              a
+              {
+                &:after
+                {
+                  @include triangle(20px, $black, bottom);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  // workflow INVERTED STYLES
+  // *************************
+  &.page-workflow
+  {
+    section#workflow
+    {
+      @include diagonalGradient($workflow-color-inverted-mode-1, darken($workflow-color-inverted-mode-1, 5%), 70%);
+
+      nav, footer, header
+      {
+        color: $white;
+      }
+
+      .arrow-down
+      {
+        @include arrow(14px, 1px, $white, $workflow-color-inverted-mode-1, top);
+      }
+    }
+  }
+
+  &.page-manifestos
+  {
+    #manifestos
+    {
+      .vitruvian
+      {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  // features INVERTED STYLES
+  // *************************
+
+  section#features
+  {
+    background: $features-color-inverted-mode-1;
+
+    #features-video
+    {
+      .video-fader
+      {
+        @include gradient-vertical(rgba($features-color-inverted-mode-1, 0), rgba($features-color-inverted-mode-1, 1))
+      }
+    }
+
+    .nav-tabs
+    {
+      border-bottom: 2px solid $gray6;
+
+      li
+      {
+        a
+        {
+          color: $white;
+        }
+
+        &.active
+        {
+          &:before {
+            border-bottom-color: $features-color-inverted-mode-1;  /* arrow color */
+          }
+
+          &:after {
+            border-bottom-color: $gray6;  /* arrow color */
+          }
+        }
+      }
+    }
+
+
+    .design-concept
+    {
+      .design-concept-group
+      {
+        &.design-concept-group-dark
+        {
+          background: darken($features-color-inverted-mode-1, 5%);
+        }
+
+        &.design-concept-group-light
+        {
+          background: lighten($features-color-inverted-mode-1, 5%);
+        }
+      }
+
+      .design-concept-ball
+      {
+        background: darken($gray20, 50%);
+      }
+    }
+  }
+
+
+
+  /* ACCORDION */
+  /* ======== */
+
+  .accordion
+  {
+    .panel
+    {
+      .accordion-title
+      {
+        background-image: image-url("nav/accordion-default-white.png");
+      }
+    }
+
+    .panel.active
+    {
+      .accordion-title
+      {
+        background-image: image-url("nav/accordion-active-white.png");
+      }
+    }
+
+    .accordion-item.active
+    {
+      color: $white;
+    }
+  }
+}
+
+
+// DESKTOP SPECIFIC STYLES
+@media (min-width: $screen-lg)
+{
+  body.inverted-mode-1
+  {
+    // MANIFESTOS ARROWS
+    @include largeArrows($white, $black);
+
+    // WORKFLOW SLIDER ARROWS
+    @include workflowNavArrows(30px, $white, $workflow-color-inverted-mode-1);
+
+  }
+}

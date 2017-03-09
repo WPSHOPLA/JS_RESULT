@@ -1,0 +1,60 @@
+/* variables */
+@import "constants";
+
+/* mixins */
+@import "mixins";
+
+
+// STYLES FOR USABILITY ONLY
+body.manifesto-usability
+{
+  #manifestos
+  {
+    #marquee-wrapper
+    {
+      #marquee
+      {
+        .headline-usability
+        {
+          color: $gray70;
+        }
+
+        .marquee-bg-usability
+        {
+          opacity: 1;
+          @include gradientDiagonal($usability-color, adjust_hue($usability-color, 350));      
+        }
+      }
+    }
+
+    .tab-content
+    {
+      .tab-pane#usability
+      {
+        display: block;
+      }
+    }
+  }
+
+  .container
+  {
+    .inner-wrapper
+    {
+      #usability.tab-pane
+      {
+        .content-front
+        {
+          .zen-symbol
+          {
+            position: relative;
+            float: right;
+            width: 200px;
+            height: 198px;
+            margin-left: 20px;
+            @include img-retina(image-url("cta/zen-symbol-1x.png"), image-url("cta/zen-symbol-2x.png"), 200px, 198px);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div id="search">
+  <form id="search-form" method="get">
+    <input type="text" class="empty" id="search-query" name="q" placeholder="&#xF002;" autocomplete="off">
+  </form>
+
+  {% if page.name != "search" %}
+    <section id="search-results">
+      <div class="entries"></div>
+    </section>
+  {% endif %}
+
+</div>
+
+{% raw %}
+<script id="search-results-template" type="text/mustache">
+  {{#entries}}
+    {% endraw %}
+    <a href="http://localhost:4000{% raw %}{{url}}">
+      {{title}}
+    </a>
+  {{/entries}}
+</script>
+{% endraw %}

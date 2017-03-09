@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-12">
+
+
+    <article class="summer-post-content post{% if page.imagefeature %} tag-simple{% endif %}">
+      {{ content }}
+    </article>
+
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        {% include socialmedia/like.html %}
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        {% include socialmedia/share.html %}
+      </div>
+    </div>
+
+    {% if page.comments == true %}
+      <hr>
+
+      {% include blog/disqus.html %}
+    {% endif %}
+
+    <hr>
+
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        {% include socialmedia/newsletter.html %}
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,99 @@
+body.site-single-page.screen-laptop .goldenchai-logo,
+body.site-single-page.screen-desktop .goldenchai-logo
+{
+  -skrollr-animation-name: logo_fade;
+}
+
+@-skrollr-keyframes logo_fade{
+
+  {{ site.manifestos_pre_end }} {
+    opacity: 1;
+  }
+
+  {{ site.manifestos_end }} {
+    opacity: 0;
+  }
+
+  {{ site.workflow_pre_start }} {
+    opacity: 0;
+  }
+
+  {{ site.workflow_start }} {
+    opacity: 1;
+  }
+
+  {{ site.workflow_pre_end }} {
+    opacity: 1;
+  }
+
+  {{ site.workflow_end }} {
+    opacity: 0;
+  }
+
+  {{ site.features_pre_start }} {
+    opacity: 0;
+  }
+
+  {{ site.features_start }} {
+    opacity: 1;
+  }
+
+}
+
+
+body.site-single-page.screen-desktop #primary-nav .primary-nav-manifestos,
+body.site-single-page.screen-laptop #primary-nav .primary-nav-manifestos
+{
+  -skrollr-animation-name: transition_active_nav_bg_manifestos;
+}
+
+@-skrollr-keyframes transition_active_nav_bg_manifestos{
+  {{ site.manifestos_pre_end }} {
+    background-color: rgba(204,204,204,0.5);
+  }
+
+  {{ site.manifestos_end }} {
+    background-color: rgba(204,204,204,0);
+  }
+}
+
+body.site-single-page.screen-laptop #primary-nav .primary-nav-workflow,
+body.site-single-page.screen-desktop #primary-nav .primary-nav-workflow
+{
+  -skrollr-animation-name: transition_active_nav_bg_workflow;
+}
+
+@-skrollr-keyframes transition_active_nav_bg_workflow{
+  {{ site.workflow_pre_start }} {
+    background-color: rgba(204,204,204,0);
+  }
+
+  {{ site.workflow_start }} {
+    background-color: rgba(204,204,204,0.5);
+  }
+
+  {{ site.workflow_pre_end }} {
+    background-color: rgba(204,204,204,0.5);
+  }
+
+  {{ site.workflow_end }} {
+    background-color: rgba(204,204,204,0);
+  }
+}
+
+
+body.site-single-page.screen-laptop #primary-nav .primary-nav-features,
+body.site-single-page.screen-desktop #primary-nav .primary-nav-features
+{
+  -skrollr-animation-name: transition_active_nav_bg_features;
+}
+
+@-skrollr-keyframes transition_active_nav_bg_features{
+  {{ site.features_pre_start }} {
+    background-color: rgba(204,204,204,0);
+  }
+
+  {{ site.features_start }} {
+    background-color: rgba(204,204,204,0.5);
+  }
+}

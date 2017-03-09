@@ -1,0 +1,53 @@
+/* MOBILE SPECIFIC STYLES HERE */
+/* ************************** */
+
+/* HEADER */
+body.site-multiple-pages.screen-mobile header, 
+body.site-multiple-pages.screen-tablet.orientation-landscape header
+{
+  -skrollr-animation-name:expandheader;
+}
+
+@-skrollr-keyframes expandheader {
+  {{ site.manifestos_start }} {
+    padding-top: 50px;
+  }
+
+  {{ site.manifestos_content_pre_end }} {
+    padding-top: 110px;
+  }
+}
+
+
+body.site-multiple-pages.screen-mobile header #primary-nav, 
+body.site-multiple-pages.screen-tablet.orientation-landscape header #primary-nav
+{
+  -skrollr-animation-name:appear;
+}
+
+@-skrollr-keyframes appear {
+  200 {
+    opacity: 0;
+  }
+
+  400 {
+    opacity: 1;
+  }
+}
+
+
+body.site-multiple-pages.screen-mobile header #mobile-nav-icon, 
+body.site-multiple-pages.screen-tablet.orientation-landscape header #mobile-nav-icon
+{
+  -skrollr-animation-name:screen-mobile-icon-disappear;
+}
+
+@-skrollr-keyframes screen-mobile-icon-disappear {
+  {{ site.manifestos_start }} {
+    opacity: 0.4;
+  }
+
+  {{ site.manifestos_content_pre_end }} {
+    opacity: 0;
+  }
+}
